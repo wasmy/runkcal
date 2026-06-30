@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <rect width="128" height="128" rx="24" fill="#0f0f0f"/>
+  <text x="64" y="52" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="38" font-weight="800" fill="#ff5c2b" text-anchor="middle">run</text>
+  <text x="64" y="90" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="38" font-weight="800" fill="#f0f0f0" text-anchor="middle">kcal</text>
+</svg>
