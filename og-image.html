@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:1270px;height:760px;background:#0f0f0f;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;overflow:hidden;position:relative}
+  .top-bar{position:absolute;top:0;left:0;right:0;height:6px;background:#ff5c2b}
+  .logo{position:absolute;top:40px;left:60px;font-size:28px;font-weight:800;color:#ff5c2b}
+  .logo span{color:#f0f0f0}
+  .tagline{position:absolute;top:110px;left:60px;font-size:42px;font-weight:800;color:#f0f0f0;line-height:1.2}
+  .tagline span{color:#ff5c2b}
+  .sub{position:absolute;top:190px;left:60px;font-size:20px;color:#888}
+  .card{position:absolute;top:240px;left:60px;width:640px;height:460px;background:#1a1a1a;border:1px solid #2e2e2e;border-radius:16px;padding:28px}
+  .label{font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;margin-top:20px}
+  .field{background:#242424;border:1px solid #2e2e2e;border-radius:8px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+  .field span{font-size:18px;color:#f0f0f0;font-weight:600}
+  .badge{background:#ff5c2b;color:#fff;padding:6px 16px;border-radius:6px;font-size:13px;font-weight:700}
+  .btn{background:#ff5c2b;color:#fff;border-radius:8px;padding:18px;text-align:center;font-size:18px;font-weight:700;margin-top:28px;letter-spacing:.02em}
+  .results{position:absolute;top:240px;left:740px;right:60px;display:grid;gap:12px}
+  .result-main{background:#1a1a1a;border:2px solid #ff5c2b;border-radius:16px;padding:32px;text-align:center}
+  .result-main .val{font-size:80px;font-weight:800;color:#ff5c2b;line-height:1}
+  .result-main .unit{font-size:16px;color:#888;margin-top:8px}
+  .result-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .result-small{background:#1a1a1a;border:1px solid #2e2e2e;border-radius:12px;padding:20px;text-align:center}
+  .result-small .val{font-size:36px;font-weight:800;color:#ff5c2b}
+  .result-small .unit{font-size:13px;color:#888;margin-top:4px}
+  .footer{position:absolute;bottom:20px;left:60px;font-size:14px;color:#444}
+  .pace-bar{background:#242424;border-radius:4px;height:8px;margin:16px 0 4px;position:relative}
+  .pace-dot{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:22px;height:22px;background:#ff5c2b;border-radius:50%}
+  .pace-label{font-size:13px;color:#ff5c2b;font-weight:600;margin-top:6px}
+</style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <div class="logo">run<span>kcal</span></div>
+  <div class="tagline">Free <span>Running Calorie</span><br>Calculator</div>
+  <div class="sub">Instant kcal results · No signup · Works in km/mi</div>
+  <div class="card">
+    <div class="label">Body Weight</div>
+    <div class="field"><span>70</span><span class="badge">kg</span></div>
+    <div class="label">Distance</div>
+    <div class="field"><span>5</span><span class="badge">km</span></div>
+    <div class="label">Pace / Effort</div>
+    <div class="pace-bar"><div class="pace-dot"></div></div>
+    <div class="pace-label">Moderate run — ~10 km/h</div>
+    <div class="btn">Calculate kcal</div>
+  </div>
+  <div class="results">
+    <div class="result-main">
+      <div class="val">415</div>
+      <div class="unit">total kcal burned</div>
+    </div>
+    <div class="result-row">
+      <div class="result-small"><div class="val">83</div><div class="unit">kcal / km</div></div>
+      <div class="result-small"><div class="val">11</div><div class="unit">kcal / min</div></div>
+    </div>
+  </div>
+  <div class="footer">runkcal.com &nbsp;·&nbsp; MET Formula &nbsp;·&nbsp; Metric & Imperial &nbsp;·&nbsp; Free forever</div>
+</body>
+</html>

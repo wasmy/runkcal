@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1381041586215537" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNZBVCGBQ7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VNZBVCGBQ7');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Run kcal Calculator — Free Running Calorie Calculator</title>
+  <meta name="description" content="Free running calorie calculator. Use our run kcal calculator to instantly find calories burned running or on the treadmill. Works in km/mi, metric/imperial.">
+  <meta name="keywords" content="running calorie calculator, run kcal calculator, running kcal calculator, treadmill run calorie calculator">
+  <link rel="canonical" href="https://runkcal.com/">
+  <meta property="og:title" content="Run kcal Calculator — Free Running Calorie Calculator">
+  <meta property="og:description" content="Calculate calories burned running in seconds. Free, no signup, metric & imperial.">
+  <meta property="og:url" content="https://runkcal.com/">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Run kcal Calculator","url":"https://runkcal.com/","description":"Free running calorie calculator using the MET formula.","applicationCategory":"HealthApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many calories does running burn per km?","acceptedAnswer":{"@type":"Answer","text":"On average, running burns around 60–80 kcal per km. A 70 kg person burns approximately 70 kcal/km."}},{"@type":"Question","name":"How do I calculate calories burned running?","acceptedAnswer":{"@type":"Answer","text":"Use the MET formula: Calories = MET × weight (kg) × duration (hours). Our running calorie calculator does this automatically."}},{"@type":"Question","name":"Is treadmill running the same calories as outdoor?","acceptedAnswer":{"@type":"Answer","text":"Treadmill running burns slightly fewer calories (3–5% less) due to no wind resistance."}},{"@type":"Question","name":"How many kcal does a 5km run burn?","acceptedAnswer":{"@type":"Answer","text":"A 5km run burns roughly 300–400 kcal. A 60 kg person burns ~300 kcal; 80 kg burns ~400 kcal."}}]}</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--primary:#ff5c2b;--primary-dark:#e04a1e;--bg:#0f0f0f;--surface:#1a1a1a;--surface2:#242424;--border:#2e2e2e;--text:#f0f0f0;--text-muted:#888;--radius:12px}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    header{background:var(--surface);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center}
+    .logo{font-size:1.3rem;font-weight:800;color:var(--primary)}.logo span{color:var(--text)}
+    .hero{text-align:center;padding:48px 24px 32px;max-width:680px;margin:0 auto}
+    .hero h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;line-height:1.2;margin-bottom:12px}
+    .hero h1 span{color:var(--primary)}
+    .hero p{color:var(--text-muted);font-size:1rem;max-width:480px;margin:0 auto}
+    .calculator{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:580px;margin:0 auto 40px}
+    .field{margin-bottom:20px}
+    .field label{display:block;font-size:.82rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+    .input-row{display:flex;gap:8px}
+    .input-row input{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:1rem;padding:12px 14px;outline:none;transition:border-color .2s}
+    .input-row input:focus{border-color:var(--primary)}
+    .unit-toggle{display:flex;background:var(--surface2);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+    .unit-toggle button{flex:1;background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:.85rem;font-weight:600;padding:12px 14px;transition:background .15s,color .15s}
+    .unit-toggle button.active{background:var(--primary);color:#fff}
+    .pace-labels{display:flex;justify-content:space-between;font-size:.75rem;color:var(--text-muted);margin-bottom:6px}
+    input[type="range"]{-webkit-appearance:none;width:100%;height:6px;background:var(--surface2);border-radius:3px;outline:none;cursor:pointer}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--primary);cursor:pointer}
+    .pace-display{text-align:center;margin-top:8px;font-size:.9rem;font-weight:600;color:var(--primary)}
+    .sex-toggle{display:flex;gap:8px}
+    .sex-toggle button{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text-muted);cursor:pointer;font-size:.9rem;font-weight:600;padding:12px;transition:all .15s}
+    .sex-toggle button.active{background:var(--primary);border-color:var(--primary);color:#fff}
+    .calc-btn{width:100%;background:var(--primary);border:none;border-radius:8px;color:#fff;cursor:pointer;font-size:1rem;font-weight:700;padding:15px;margin-top:8px;transition:background .15s;letter-spacing:.02em}
+    .calc-btn:hover{background:var(--primary-dark)}
+    .results{display:none;margin-top:24px;border-top:1px solid var(--border);padding-top:24px}
+    .results.show{display:block}
+    .results-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+    .result-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+    .result-card.main{grid-column:1/-1;background:linear-gradient(135deg,#ff5c2b22,#ff5c2b11);border-color:var(--primary)}
+    .result-card .value{font-size:2rem;font-weight:800;color:var(--primary);line-height:1;margin-bottom:4px}
+    .result-card.main .value{font-size:2.8rem}
+    .result-card .unit{font-size:.8rem;color:var(--text-muted)}
+    .food-section{margin-top:16px}
+    .food-section h3{font-size:.82rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+    .food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
+    .food-item{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;font-size:.82rem}
+    .food-item .emoji{font-size:1.4rem;display:block;margin-bottom:4px}
+    .food-item .food-val{font-weight:700;color:var(--text)}
+    .food-item .food-name{color:var(--text-muted);font-size:.75rem}
+    .article{max-width:680px;margin:0 auto 60px;padding:0 24px}
+    .article h2{font-size:1.4rem;font-weight:700;margin:32px 0 12px}
+    .article p{color:#bbb;margin-bottom:14px;line-height:1.75}
+    .faq{max-width:680px;margin:0 auto 60px;padding:0 24px}
+    .faq h2{font-size:1.4rem;font-weight:700;margin-bottom:16px}
+    .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;overflow:hidden}
+    .faq-q{cursor:pointer;font-weight:600;font-size:.95rem;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;user-select:none}
+    .faq-q::after{content:'+';font-size:1.3rem;color:var(--primary);font-weight:400;flex-shrink:0;margin-left:12px}
+    .faq-item.open .faq-q::after{content:'−'}
+    .faq-a{display:none;padding:0 20px 16px;color:#bbb;font-size:.92rem;line-height:1.7}
+    .faq-item.open .faq-a{display:block}
+    footer{border-top:1px solid var(--border);padding:24px;text-align:center;color:var(--text-muted);font-size:.82rem}
+    footer a{color:var(--text-muted);text-decoration:none}
+    @media(max-width:480px){.calculator{padding:20px 16px;margin:0 16px 32px}.results-grid{grid-template-columns:1fr}.result-card.main{grid-column:auto}}
+  </style>
+</head>
+<body>
+<header><div class="logo">run<span>kcal</span></div></header>
+<div class="hero">
+  <h1>Free <span>Running Calorie</span> Calculator</h1>
+  <p>Instantly calculate kcal burned running or on a treadmill. No signup. No ads. Just results.</p>
+</div>
+<div class="calculator">
+  <div class="field">
+    <label>Body Weight</label>
+    <div class="input-row">
+      <input type="number" id="weight" placeholder="70" min="30" max="250" value="70">
+      <div class="unit-toggle">
+        <button class="active" id="btn-kg" onclick="setWeightUnit('kg')">kg</button>
+        <button id="btn-lbs" onclick="setWeightUnit('lbs')">lbs</button>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label>Distance</label>
+    <div class="input-row">
+      <input type="number" id="distance" placeholder="5" min="0.1" max="200" step="0.1" value="5">
+      <div class="unit-toggle">
+        <button class="active" id="btn-km" onclick="setDistUnit('km')">km</button>
+        <button id="btn-mi" onclick="setDistUnit('mi')">mi</button>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label>Pace / Effort</label>
+    <div class="pace-labels"><span>Walk</span><span>Jog</span><span>Run</span><span>Fast</span><span>Sprint</span></div>
+    <input type="range" id="pace" min="1" max="7" step="1" value="4" oninput="updatePaceLabel()">
+    <div class="pace-display" id="pace-display">Moderate run — ~10 km/h</div>
+  </div>
+  <div class="field">
+    <label>Sex</label>
+    <div class="sex-toggle">
+      <button class="active" id="btn-m" onclick="setSex('m')">♂ Male</button>
+      <button id="btn-f" onclick="setSex('f')">♀ Female</button>
+    </div>
+  </div>
+  <button class="calc-btn" onclick="calculate()">Calculate kcal →</button>
+  <div class="results" id="results">
+    <div class="results-grid">
+      <div class="result-card main"><div class="value" id="res-total">0</div><div class="unit">total kcal burned</div></div>
+      <div class="result-card"><div class="value" id="res-per-km">0</div><div class="unit">kcal / km</div></div>
+      <div class="result-card"><div class="value" id="res-per-min">0</div><div class="unit">kcal / min</div></div>
+    </div>
+    <div class="food-section">
+      <h3>Food equivalents</h3>
+      <div class="food-grid" id="food-grid"></div>
+    </div>
+  </div>
+</div>
+<div class="article">
+  <h2>Running Calorie Calculator — How It Works</h2>
+  <p>Our <strong>running calorie calculator</strong> uses the scientifically validated MET (Metabolic Equivalent of Task) formula to estimate the kilocalories you burn during any run. Simply enter your body weight, distance, and pace — and get an instant result, whether you're running outside or on a treadmill.</p>
+  <h2>What Is a Run kcal Calculator?</h2>
+  <p>A <strong>run kcal calculator</strong> converts your running effort into kilocalories burned. "kcal" and "calorie" mean the same thing on food labels — this tool shows you exactly how much energy your body used. Unlike generic fitness apps, our <strong>running kcal calculator</strong> is purpose-built for runners and gives you kcal/km and kcal/min breakdowns, not just a total.</p>
+  <h2>Treadmill Run Calorie Calculator</h2>
+  <p>Our <strong>treadmill run calorie calculator</strong> mode works the same way. Treadmill running is slightly less demanding than outdoor running at the same pace (no air resistance, no terrain variation), so calorie estimates are adjusted accordingly.</p>
+  <h2>The MET Formula Explained</h2>
+  <p>The formula is: <strong>kcal = MET × weight (kg) × time (hours)</strong>. MET values range from 3.5 (brisk walk) to 14+ (elite sprint). We map 7 pace levels to calibrated MET values so the calculation is as accurate as possible without a heart rate monitor.</p>
+  <h2>Why Does Weight Affect Calories Burned Running?</h2>
+  <p>Heavier runners burn more kcal per km because they move more mass. A 90 kg runner burns roughly 50% more calories per km than a 60 kg runner at the same pace.</p>
+</div>
+<div class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many calories does running burn per km?</div><div class="faq-a">On average, running burns around 60–80 kcal per km. A 70 kg person at a moderate pace burns approximately 70 kcal/km. Use the calculator above for your exact result.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How do I calculate calories burned running?</div><div class="faq-a">Use the MET formula: Calories = MET × weight (kg) × duration (hours). Our running calorie calculator does this automatically — enter your weight, distance, and pace.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is treadmill running the same calories as outdoor?</div><div class="faq-a">Treadmill running burns slightly fewer calories (around 3–5% less) at the same pace because there is no wind resistance. Our treadmill run calorie calculator accounts for this.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many kcal does a 5km run burn?</div><div class="faq-a">A 5km run burns roughly 300–400 kcal for most people. A 60 kg person burns ~300 kcal; an 80 kg person burns ~400 kcal. Use the run kcal calculator above for your exact number.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Does running speed affect calories burned?</div><div class="faq-a">Yes — faster running has a higher MET value, meaning more kcal burned per minute. However, per km the difference is smaller. Your body weight has a bigger impact than speed.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is a MET value in running?</div><div class="faq-a">MET (Metabolic Equivalent of Task) measures how hard your body works vs rest. Walking = ~3.5, jogging = ~7, fast running = ~11+. Our running kcal calculator uses 7 pace-calibrated MET values.</div></div>
+</div>
+<footer><p>© 2025 runkcal.com — Free Running Calorie Calculator &nbsp;|&nbsp; <a href="mailto:hello@runkcal.com">Contact</a></p></footer>
+<script>
+  let weightUnit='kg',distUnit='km',sex='m';
+  const paceData=[
+    {label:'Brisk walk — ~6 km/h',met:3.8,kmh:6},
+    {label:'Light jog — ~8 km/h',met:6.0,kmh:8},
+    {label:'Easy run — ~9 km/h',met:7.0,kmh:9},
+    {label:'Moderate run — ~10 km/h',met:8.3,kmh:10},
+    {label:'Fast run — ~12 km/h',met:10.0,kmh:12},
+    {label:'Hard run — ~14 km/h',met:11.5,kmh:14},
+    {label:'Sprint — ~16+ km/h',met:14.0,kmh:16}
+  ];
+  const foods=[
+    {emoji:'🍌',name:'Bananas',kcal:89},
+    {emoji:'🍕',name:'Pizza slice',kcal:285},
+    {emoji:'🍺',name:'Beer (330ml)',kcal:150},
+    {emoji:'🍫',name:'Choc bar',kcal:230},
+    {emoji:'🥚',name:'Eggs',kcal:78},
+    {emoji:'🍎',name:'Apples',kcal:95}
+  ];
+  function setWeightUnit(u){const w=parseFloat(document.getElementById('weight').value)||70;if(u==='lbs'&&weightUnit==='kg')document.getElementById('weight').value=Math.round(w*2.205);else if(u==='kg'&&weightUnit==='lbs')document.getElementById('weight').value=Math.round(w/2.205);weightUnit=u;document.getElementById('btn-kg').classList.toggle('active',u==='kg');document.getElementById('btn-lbs').classList.toggle('active',u==='lbs')}
+  function setDistUnit(u){const d=parseFloat(document.getElementById('distance').value)||5;if(u==='mi'&&distUnit==='km')document.getElementById('distance').value=(d*0.6214).toFixed(2);else if(u==='km'&&distUnit==='mi')document.getElementById('distance').value=(d*1.6093).toFixed(2);distUnit=u;document.getElementById('btn-km').classList.toggle('active',u==='km');document.getElementById('btn-mi').classList.toggle('active',u==='mi')}
+  function setSex(s){sex=s;document.getElementById('btn-m').classList.toggle('active',s==='m');document.getElementById('btn-f').classList.toggle('active',s==='f')}
+  function updatePaceLabel(){document.getElementById('pace-display').textContent=paceData[document.getElementById('pace').value-1].label}
+  function calculate(){
+    let weight=parseFloat(document.getElementById('weight').value)||70;
+    let dist=parseFloat(document.getElementById('distance').value)||5;
+    const p=paceData[document.getElementById('pace').value-1];
+    if(weightUnit==='lbs')weight=weight/2.205;
+    if(distUnit==='mi')dist=dist*1.6093;
+    const sf=sex==='f'?0.9:1.0;
+    const dh=dist/p.kmh;
+    const total=p.met*weight*dh*sf;
+    animateValue('res-total',0,Math.round(total),800);
+    animateValue('res-per-km',0,Math.round(total/dist),600);
+    animateValue('res-per-min',0,Math.round(total/(dh*60)),600);
+    document.getElementById('food-grid').innerHTML=foods.map(f=>`<div class="food-item"><span class="emoji">${f.emoji}</span><div class="food-val">× ${(total/f.kcal).toFixed(1)}</div><div class="food-name">${f.name}</div></div>`).join('');
+    document.getElementById('results').classList.add('show');
+  }
+  function animateValue(id,start,end,dur){const el=document.getElementById(id);const range=end-start;const t0=performance.now();function step(now){const p=Math.min((now-t0)/dur,1);const e=1-Math.pow(1-p,3);el.textContent=Math.round(start+range*e);if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
+  function toggleFaq(el){el.closest('.faq-item').classList.toggle('open')}
+  updatePaceLabel();
+</script>
+</body>
+</html>
