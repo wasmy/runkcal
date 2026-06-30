@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1381041586215537" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNZBVCGBQ7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VNZBVCGBQ7');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Treadmill Calorie Calculator — Calories Burned on Treadmill</title>
+  <meta name="description" content="Free treadmill calorie calculator. Enter speed, incline, duration and weight to instantly calculate calories burned on treadmill. Works in km/h and mph.">
+  <meta name="keywords" content="treadmill calorie calculator, treadmill calories burned calculator, calories burned on treadmill, treadmill kcal calculator">
+  <link rel="canonical" href="https://runkcal.com/treadmill/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Treadmill Calorie Calculator","url":"https://runkcal.com/treadmill/","description":"Free treadmill calorie calculator using MET formula with incline support.","applicationCategory":"HealthApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many calories does a treadmill burn per hour?","acceptedAnswer":{"@type":"Answer","text":"A 70 kg person burns approximately 400–700 kcal per hour on a treadmill depending on speed and incline. Running at 10 km/h burns around 580 kcal/hour, while walking at 5 km/h burns about 300 kcal/hour."}},{"@type":"Question","name":"Does treadmill incline burn more calories?","acceptedAnswer":{"@type":"Answer","text":"Yes — each 1% incline adds approximately 5–10% more calories burned. A 5% incline can increase calorie burn by 30–50% compared to flat walking at the same speed."}},{"@type":"Question","name":"How do I calculate treadmill calories burned?","acceptedAnswer":{"@type":"Answer","text":"Use the MET formula: Calories = MET × weight (kg) × duration (hours). MET increases with speed and incline. Our calculator handles this automatically based on your inputs."}},{"@type":"Question","name":"Is treadmill running the same calories as outdoor running?","acceptedAnswer":{"@type":"Answer","text":"Roughly yes at 1% incline (which compensates for lack of wind resistance). At 0% incline, treadmill burns 5–10% fewer calories than outdoor running at the same pace."}},{"@type":"Question","name":"How long on treadmill to burn 500 calories?","acceptedAnswer":{"@type":"Answer","text":"At 10 km/h, a 70 kg person burns 500 kcal in about 50 minutes. At walking pace (5 km/h), it takes around 100 minutes. Use our calculator for your exact weight and speed."}}]}</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--primary:#ff5c2b;--primary-dark:#e04a1e;--bg:#0f0f0f;--surface:#1a1a1a;--surface2:#242424;--border:#2e2e2e;--text:#f0f0f0;--text-muted:#888;--radius:12px}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    header{background:var(--surface);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .logo{font-size:1.3rem;font-weight:800;color:var(--primary)}.logo span{color:var(--text)}
+    nav{display:flex;gap:6px;flex-wrap:wrap}
+    nav a{color:var(--text-muted);text-decoration:none;font-size:.82rem;font-weight:600;padding:6px 12px;border-radius:6px;border:1px solid var(--border);transition:all .15s}
+    nav a:hover,nav a.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .hero{text-align:center;padding:48px 24px 32px;max-width:680px;margin:0 auto}
+    .hero h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;line-height:1.2;margin-bottom:12px}
+    .hero h1 span{color:var(--primary)}
+    .hero p{color:var(--text-muted);font-size:1rem;max-width:480px;margin:0 auto}
+    .calculator{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:580px;margin:0 auto 40px}
+    .field{margin-bottom:20px}
+    .field label{display:block;font-size:.82rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+    .input-row{display:flex;gap:8px}
+    .input-row input{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:1rem;padding:12px 14px;outline:none;transition:border-color .2s}
+    .input-row input:focus{border-color:var(--primary)}
+    .unit-toggle{display:flex;background:var(--surface2);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+    .unit-toggle button{flex:1;background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:.85rem;font-weight:600;padding:12px 14px;transition:background .15s,color .15s}
+    .unit-toggle button.active{background:var(--primary);color:#fff}
+    .slider-wrap{position:relative}
+    .slider-labels{display:flex;justify-content:space-between;font-size:.72rem;color:var(--text-muted);margin-bottom:6px}
+    input[type="range"]{-webkit-appearance:none;width:100%;height:6px;background:var(--surface2);border-radius:3px;outline:none;cursor:pointer}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--primary);cursor:pointer}
+    .range-display{text-align:center;margin-top:8px;font-size:.9rem;font-weight:600;color:var(--primary)}
+    .incline-display{text-align:center;margin-top:8px;font-size:.9rem;font-weight:600;color:var(--primary)}
+    .sex-toggle{display:flex;gap:8px}
+    .sex-toggle button{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text-muted);cursor:pointer;font-size:.9rem;font-weight:600;padding:12px;transition:all .15s}
+    .sex-toggle button.active{background:var(--primary);border-color:var(--primary);color:#fff}
+    .calc-btn{width:100%;background:var(--primary);border:none;border-radius:8px;color:#fff;cursor:pointer;font-size:1rem;font-weight:700;padding:15px;margin-top:8px;transition:background .15s;letter-spacing:.02em}
+    .calc-btn:hover{background:var(--primary-dark)}
+    .results{display:none;margin-top:24px;border-top:1px solid var(--border);padding-top:24px}
+    .results.show{display:block}
+    .results-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+    .result-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+    .result-card.main{grid-column:1/-1;background:linear-gradient(135deg,#ff5c2b22,#ff5c2b11);border-color:var(--primary)}
+    .result-card .value{font-size:2rem;font-weight:800;color:var(--primary);line-height:1;margin-bottom:4px}
+    .result-card.main .value{font-size:2.8rem}
+    .result-card .unit{font-size:.8rem;color:var(--text-muted)}
+    .incline-badge{display:inline-block;background:#ff5c2b22;border:1px solid var(--primary);border-radius:6px;color:var(--primary);font-size:.75rem;font-weight:700;padding:3px 10px;margin-top:6px}
+    .food-section{margin-top:16px}
+    .food-section h3{font-size:.82rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+    .food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
+    .food-item{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;font-size:.82rem}
+    .food-item .emoji{font-size:1.4rem;display:block;margin-bottom:4px}
+    .food-item .food-val{font-weight:700;color:var(--text)}
+    .food-item .food-name{color:var(--text-muted);font-size:.75rem}
+    .crosslinks{max-width:580px;margin:0 auto 40px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .crosslink-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+    .crosslink-card p{color:var(--text-muted);margin-bottom:10px;font-size:.85rem}
+    .crosslink-card a{background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);text-decoration:none;padding:8px 16px;font-weight:600;font-size:.85rem;transition:all .15s;display:inline-block}
+    .crosslink-card a:hover{border-color:var(--primary);color:var(--primary)}
+    .article{max-width:680px;margin:0 auto 60px;padding:0 24px}
+    .article h2{font-size:1.4rem;font-weight:700;margin:32px 0 12px}
+    .article p{color:#bbb;margin-bottom:14px;line-height:1.75}
+    .article table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.88rem}
+    .article th{background:var(--surface2);padding:10px 12px;text-align:left;color:var(--text-muted);font-weight:600;border:1px solid var(--border)}
+    .article td{padding:10px 12px;border:1px solid var(--border);color:#ccc}
+    .article tr:nth-child(even) td{background:#ffffff08}
+    .faq{max-width:680px;margin:0 auto 60px;padding:0 24px}
+    .faq h2{font-size:1.4rem;font-weight:700;margin-bottom:16px}
+    .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;overflow:hidden}
+    .faq-q{cursor:pointer;font-weight:600;font-size:.95rem;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;user-select:none}
+    .faq-q::after{content:'+';font-size:1.3rem;color:var(--primary);font-weight:400;flex-shrink:0;margin-left:12px}
+    .faq-item.open .faq-q::after{content:'-'}
+    .faq-a{display:none;padding:0 20px 16px;color:#bbb;font-size:.92rem;line-height:1.7}
+    .faq-item.open .faq-a{display:block}
+    footer{border-top:1px solid var(--border);padding:24px;text-align:center;color:var(--text-muted);font-size:.82rem}
+    footer a{color:var(--text-muted);text-decoration:none}
+    @media(max-width:480px){.calculator{padding:20px 16px;margin:0 16px 32px}.results-grid{grid-template-columns:1fr}.result-card.main{grid-column:auto}.crosslinks{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">run<span>kcal</span></div>
+  <nav>
+    <a href="/">🏃 Running</a>
+    <a href="/walking/">🚶 Walking</a>
+    <a href="/treadmill/" class="active">🏋️ Treadmill</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Free <span>Treadmill Calorie</span> Calculator</h1>
+  <p>Enter your speed, incline and duration to instantly calculate calories burned on treadmill. Supports km/h and mph.</p>
+</div>
+
+<div class="calculator">
+  <div class="field">
+    <label>Body Weight</label>
+    <div class="input-row">
+      <input type="number" id="weight" placeholder="70" min="30" max="250" value="70">
+      <div class="unit-toggle">
+        <button class="active" id="btn-kg" onclick="setWeightUnit('kg')">kg</button>
+        <button id="btn-lbs" onclick="setWeightUnit('lbs')">lbs</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Duration</label>
+    <div class="input-row">
+      <input type="number" id="duration" placeholder="30" min="1" max="300" value="30">
+      <div class="unit-toggle" style="min-width:64px">
+        <button class="active" style="cursor:default">min</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Speed</label>
+    <div class="slider-labels" id="speed-labels"></div>
+    <div class="slider-wrap">
+      <input type="range" id="speed" min="1" max="9" step="1" value="5" oninput="updateSpeed()">
+    </div>
+    <div class="range-display" id="speed-display">10 km/h — Moderate run</div>
+    <div style="display:flex;gap:8px;margin-top:10px">
+      <div class="unit-toggle" style="flex:1">
+        <button class="active" id="btn-kmh" onclick="setSpeedUnit('kmh')">km/h</button>
+        <button id="btn-mph" onclick="setSpeedUnit('mph')">mph</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Incline</label>
+    <div class="slider-labels">
+      <span>0%</span><span>2%</span><span>5%</span><span>8%</span><span>10%</span><span>12%</span><span>15%</span>
+    </div>
+    <input type="range" id="incline" min="0" max="15" step="1" value="1" oninput="updateIncline()">
+    <div class="incline-display" id="incline-display">1% incline — simulates outdoor running</div>
+  </div>
+
+  <div class="field">
+    <label>Sex</label>
+    <div class="sex-toggle">
+      <button class="active" id="btn-m" onclick="setSex('m')">Male</button>
+      <button id="btn-f" onclick="setSex('f')">Female</button>
+    </div>
+  </div>
+
+  <button class="calc-btn" onclick="calculate()">Calculate Treadmill Calories</button>
+
+  <div class="results" id="results">
+    <div class="results-grid">
+      <div class="result-card main">
+        <div class="value" id="res-total">0</div>
+        <div class="unit">total kcal burned</div>
+        <div class="incline-badge" id="incline-badge">1% incline</div>
+      </div>
+      <div class="result-card"><div class="value" id="res-per-km">0</div><div class="unit">kcal / km</div></div>
+      <div class="result-card"><div class="value" id="res-per-min">0</div><div class="unit">kcal / min</div></div>
+    </div>
+    <div class="food-section">
+      <h3>Food equivalents</h3>
+      <div class="food-grid" id="food-grid"></div>
+    </div>
+  </div>
+</div>
+
+<div class="crosslinks">
+  <div class="crosslink-card">
+    <p>Going outside? Compare with outdoor running.</p>
+    <a href="/">🏃 Running Calculator →</a>
+  </div>
+  <div class="crosslink-card">
+    <p>Prefer a leisurely pace? Try walking.</p>
+    <a href="/walking/">🚶 Walking Calculator →</a>
+  </div>
+</div>
+
+<div class="article">
+  <h2>Treadmill Calorie Calculator — How It Works</h2>
+  <p>Our <strong>treadmill calorie calculator</strong> uses the MET (Metabolic Equivalent of Task) formula adjusted for both speed and incline. Unlike outdoor running calculators, treadmill workouts can vary significantly based on gradient — which is why incline is a key input here.</p>
+
+  <h2>Calories Burned on Treadmill by Speed</h2>
+  <p>Here's how many calories a <strong>70 kg person</strong> burns per 30 minutes on a flat treadmill (1% incline):</p>
+  <table>
+    <tr><th>Speed</th><th>Activity</th><th>kcal / 30 min</th><th>kcal / hour</th></tr>
+    <tr><td>4 km/h</td><td>Slow walk</td><td>~120</td><td>~245</td></tr>
+    <tr><td>5 km/h</td><td>Brisk walk</td><td>~155</td><td>~310</td></tr>
+    <tr><td>6 km/h</td><td>Fast walk / jog</td><td>~195</td><td>~390</td></tr>
+    <tr><td>8 km/h</td><td>Easy run</td><td>~265</td><td>~530</td></tr>
+    <tr><td>10 km/h</td><td>Moderate run</td><td>~295</td><td>~590</td></tr>
+    <tr><td>12 km/h</td><td>Fast run</td><td>~360</td><td>~720</td></tr>
+    <tr><td>14 km/h</td><td>Hard run</td><td>~415</td><td>~830</td></tr>
+  </table>
+
+  <h2>Does Treadmill Incline Burn More Calories?</h2>
+  <p>Significantly yes. Each 1% of incline increases calorie burn by approximately 5–10%. At 5% incline, you burn roughly <strong>40% more calories</strong> than at flat grade for the same speed and duration. The "12-3-30" method (12% incline, 3 mph, 30 min) burns 250–350 kcal depending on body weight.</p>
+
+  <h2>Treadmill vs Outdoor Running — Calorie Difference</h2>
+  <p>At 0% incline, a treadmill burns about 5–10% fewer calories than outdoor running at the same speed, because there's no wind resistance or terrain variation. Setting the treadmill to <strong>1% incline</strong> compensates for this, making calorie burn equivalent to outdoor running.</p>
+
+  <h2>The MET Formula for Treadmill</h2>
+  <p>Formula: <strong>kcal = (MET_base + incline_bonus) × weight (kg) × duration (hours) × sex_factor</strong>. MET ranges from 3.5 (slow walk) to 14+ (sprinting). Incline adds approximately 0.15 MET per 1% grade. Our calculator uses calibrated values from published exercise science data.</p>
+</div>
+
+<div class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many calories does a treadmill burn per hour?</div><div class="faq-a">A 70 kg person burns approximately 300–830 kcal/hour depending on speed and incline. Walking at 5 km/h flat burns ~300 kcal/hour; running at 12 km/h burns ~720 kcal/hour.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Does incline on treadmill burn more calories?</div><div class="faq-a">Yes — significantly. Each 1% incline adds 5–10% more calorie burn. A 5% incline can increase total calories burned by 30–50% vs flat walking at the same speed.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long on treadmill to burn 500 calories?</div><div class="faq-a">At 10 km/h (1% incline), a 70 kg person burns 500 kcal in about 50 minutes. At walking pace (5 km/h), it takes around 95–100 minutes. Use our calculator above for your exact numbers.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is the treadmill calorie counter accurate?</div><div class="faq-a">Treadmill built-in counters overestimate by 10–20% because they often don't account for your actual weight. Our MET-based calculator using your real weight and incline gives a more accurate estimate.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is the 12-3-30 treadmill workout calories?</div><div class="faq-a">The 12-3-30 method (12% incline, 3 mph / ~5 km/h, 30 min) burns approximately 250–380 kcal depending on body weight. A 70 kg person burns around 310 kcal using this method.</div></div>
+</div>
+
+<footer>
+  <p>© 2025 runkcal.com — Free Treadmill, Running & Walking Calorie Calculator |
+    <a href="/">Running</a> · <a href="/walking/">Walking</a> · <a href="/treadmill/">Treadmill</a> |
+    <a href="mailto:hello@runkcal.com">Contact</a>
+  </p>
+</footer>
+
+<script>
+  let weightUnit='kg', speedUnit='kmh', sex='m';
+
+  const SPEEDS = [
+    {kmh:3,  label:'3 km/h — Slow walk',     met:2.5},
+    {kmh:4,  label:'4 km/h — Normal walk',    met:3.5},
+    {kmh:5,  label:'5 km/h — Brisk walk',     met:4.3},
+    {kmh:6,  label:'6 km/h — Fast walk / jog',met:5.5},
+    {kmh:8,  label:'8 km/h — Easy run',       met:7.0},
+    {kmh:10, label:'10 km/h — Moderate run',  met:8.3},
+    {kmh:12, label:'12 km/h — Fast run',      met:10.5},
+    {kmh:14, label:'14 km/h — Hard run',      met:12.0},
+    {kmh:16, label:'16 km/h — Sprint',        met:14.0},
+  ];
+
+  const F = [
+    {e:'🍌',n:'Bananas',c:89},
+    {e:'🍕',n:'Pizza slice',c:285},
+    {e:'🍺',n:'Beer',c:150},
+    {e:'🍫',n:'Chocolate',c:230},
+    {e:'🥚',n:'Eggs',c:78},
+    {e:'🍎',n:'Apples',c:95}
+  ];
+
+  function initSpeedLabels() {
+    const el = document.getElementById('speed-labels');
+    const labels = ['3','4','5','6','8','10','12','14','16'];
+    el.innerHTML = labels.map(l=>`<span>${l}</span>`).join('');
+  }
+
+  function setWeightUnit(u) {
+    const w = parseFloat(document.getElementById('weight').value)||70;
+    if(u==='lbs'&&weightUnit==='kg') document.getElementById('weight').value=Math.round(w*2.205);
+    else if(u==='kg'&&weightUnit==='lbs') document.getElementById('weight').value=Math.round(w/2.205);
+    weightUnit=u;
+    document.getElementById('btn-kg').classList.toggle('active',u==='kg');
+    document.getElementById('btn-lbs').classList.toggle('active',u==='lbs');
+  }
+
+  function setSpeedUnit(u) {
+    speedUnit=u;
+    document.getElementById('btn-kmh').classList.toggle('active',u==='kmh');
+    document.getElementById('btn-mph').classList.toggle('active',u==='mph');
+    updateSpeed();
+  }
+
+  function setSex(s) {
+    sex=s;
+    document.getElementById('btn-m').classList.toggle('active',s==='m');
+    document.getElementById('btn-f').classList.toggle('active',s==='f');
+  }
+
+  function updateSpeed() {
+    const idx = document.getElementById('speed').value - 1;
+    const s = SPEEDS[idx];
+    if(speedUnit==='mph') {
+      const mph = (s.kmh*0.6214).toFixed(1);
+      const labelMph = s.label.replace(/\d+ km\/h/, mph+' mph');
+      document.getElementById('speed-display').textContent = labelMph;
+    } else {
+      document.getElementById('speed-display').textContent = s.label;
+    }
+  }
+
+  function updateIncline() {
+    const g = parseInt(document.getElementById('incline').value);
+    let desc;
+    if(g===0) desc='0% — flat treadmill';
+    else if(g===1) desc='1% — simulates outdoor running';
+    else if(g<=3) desc=g+'% — gentle slope';
+    else if(g<=6) desc=g+'% — moderate incline';
+    else if(g<=10) desc=g+'% — steep incline';
+    else desc=g+'% — very steep (power walk zone)';
+    document.getElementById('incline-display').textContent=desc;
+  }
+
+  function calculate() {
+    let w = parseFloat(document.getElementById('weight').value)||70;
+    const dur = parseFloat(document.getElementById('duration').value)||30;
+    const idx = document.getElementById('speed').value - 1;
+    const grade = parseInt(document.getElementById('incline').value);
+    const s = SPEEDS[idx];
+
+    if(weightUnit==='lbs') w/=2.205;
+    const sf = sex==='f'?0.9:1;
+    const dh = dur/60;
+
+    // Incline bonus: ~0.15 MET per 1% grade (based on exercise science)
+    const effectiveMET = s.met + (grade * 0.15);
+    const totalKcal = effectiveMET * w * dh * sf;
+    const distKm = s.kmh * dh;
+    const kcalPerKm = distKm > 0 ? totalKcal/distKm : 0;
+    const kcalPerMin = totalKcal/dur;
+
+    anim('res-total', Math.round(totalKcal));
+    anim('res-per-km', Math.round(kcalPerKm));
+    anim('res-per-min', Math.round(kcalPerMin));
+
+    document.getElementById('incline-badge').textContent = grade+'% incline';
+    document.getElementById('food-grid').innerHTML = F.map(f=>`
+      <div class="food-item">
+        <span class="emoji">${f.e}</span>
+        <div class="food-val">x${(totalKcal/f.c).toFixed(1)}</div>
+        <div class="food-name">${f.n}</div>
+      </div>`).join('');
+
+    document.getElementById('results').classList.add('show');
+  }
+
+  function anim(id,end){
+    const el=document.getElementById(id),t0=performance.now();
+    (function s(now){
+      const p=Math.min((now-t0)/700,1);
+      el.textContent=Math.round(end*(1-Math.pow(1-p,3)));
+      if(p<1)requestAnimationFrame(s)
+    })(t0)
+  }
+
+  function toggleFaq(el){el.closest('.faq-item').classList.toggle('open')}
+
+  initSpeedLabels();
+  updateSpeed();
+  updateIncline();
+</script>
+</body>
+</html>
