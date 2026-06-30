@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1381041586215537" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNZBVCGBQ7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VNZBVCGBQ7');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calories Burned Running a Mile Calculator — Instant Result</title>
+  <meta name="description" content="How many calories does running a mile burn? Enter your weight and pace for an instant result. Free mile calorie calculator — no signup needed.">
+  <meta name="keywords" content="calories burned running a mile, running a mile calories, how many calories does running a mile burn, mile calorie calculator">
+  <link rel="canonical" href="https://runkcal.com/mile/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Mile Calorie Calculator","url":"https://runkcal.com/mile/","description":"Calculate calories burned running a mile by weight and pace.","applicationCategory":"HealthApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many calories does running a mile burn?","acceptedAnswer":{"@type":"Answer","text":"Running a mile burns approximately 80–140 calories depending on body weight. The simple rule: about 1 calorie per pound of bodyweight per mile. A 154 lb (70 kg) person burns roughly 100–110 calories per mile."}},{"@type":"Question","name":"How many calories does running a mile burn by weight?","acceptedAnswer":{"@type":"Answer","text":"At moderate pace: 120 lbs (54 kg) = ~85 cal, 150 lbs (68 kg) = ~107 cal, 180 lbs (82 kg) = ~128 cal, 200 lbs (91 kg) = ~143 cal, 220 lbs (100 kg) = ~157 cal."}},{"@type":"Question","name":"Does running pace change calories burned per mile?","acceptedAnswer":{"@type":"Answer","text":"Surprisingly little. Running a mile fast vs slow burns nearly the same total calories — faster pace has higher MET but shorter time. The main variable is body weight, not speed."}},{"@type":"Question","name":"How many miles do I need to run to burn 500 calories?","acceptedAnswer":{"@type":"Answer","text":"For a 70 kg (154 lb) person, approximately 4.5–5 miles burns 500 calories. Heavier runners need fewer miles; lighter runners need more. Use our calculator to find your personal number."}}]}</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--primary:#ff5c2b;--primary-dark:#e04a1e;--bg:#0f0f0f;--surface:#1a1a1a;--surface2:#242424;--border:#2e2e2e;--text:#f0f0f0;--text-muted:#888;--radius:12px}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    header{background:var(--surface);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .logo{font-size:1.3rem;font-weight:800;color:var(--primary)}.logo span{color:var(--text)}
+    nav{display:flex;gap:6px;flex-wrap:wrap}
+    nav a{color:var(--text-muted);text-decoration:none;font-size:.82rem;font-weight:600;padding:6px 12px;border-radius:6px;border:1px solid var(--border);transition:all .15s}
+    nav a:hover,nav a.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .hero{text-align:center;padding:48px 24px 32px;max-width:680px;margin:0 auto}
+    .hero h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;line-height:1.2;margin-bottom:12px}
+    .hero h1 span{color:var(--primary)}
+    .hero p{color:var(--text-muted);font-size:1rem;max-width:500px;margin:0 auto}
+    .badge-row{display:flex;justify-content:center;gap:8px;margin-top:16px;flex-wrap:wrap}
+    .badge{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:.78rem;color:var(--text-muted)}
+    .badge strong{color:var(--text)}
+    .calculator{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:540px;margin:0 auto 40px}
+    .field{margin-bottom:20px}
+    .field label{display:block;font-size:.82rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+    .input-row{display:flex;gap:8px}
+    .input-row input{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:1.1rem;padding:12px 14px;outline:none;transition:border-color .2s}
+    .input-row input:focus{border-color:var(--primary)}
+    .unit-toggle{display:flex;background:var(--surface2);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+    .unit-toggle button{flex:1;background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:.85rem;font-weight:600;padding:12px 14px;transition:background .15s,color .15s}
+    .unit-toggle button.active{background:var(--primary);color:#fff}
+    .pace-labels{display:flex;justify-content:space-between;font-size:.72rem;color:var(--text-muted);margin-bottom:6px}
+    input[type="range"]{-webkit-appearance:none;width:100%;height:6px;background:var(--surface2);border-radius:3px;outline:none;cursor:pointer}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--primary);cursor:pointer}
+    .pace-display{text-align:center;margin-top:8px;font-size:.9rem;font-weight:600;color:var(--primary)}
+    .sex-toggle{display:flex;gap:8px}
+    .sex-toggle button{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text-muted);cursor:pointer;font-size:.9rem;font-weight:600;padding:12px;transition:all .15s}
+    .sex-toggle button.active{background:var(--primary);border-color:var(--primary);color:#fff}
+    .calc-btn{width:100%;background:var(--primary);border:none;border-radius:8px;color:#fff;cursor:pointer;font-size:1rem;font-weight:700;padding:15px;margin-top:8px;transition:background .15s}
+    .calc-btn:hover{background:var(--primary-dark)}
+    .results{display:none;margin-top:24px;border-top:1px solid var(--border);padding-top:24px}
+    .results.show{display:block}
+    .result-main{background:linear-gradient(135deg,#ff5c2b22,#ff5c2b11);border:2px solid var(--primary);border-radius:12px;padding:28px;text-align:center;margin-bottom:12px}
+    .result-main .value{font-size:3.5rem;font-weight:800;color:var(--primary);line-height:1}
+    .result-main .unit{font-size:.9rem;color:var(--text-muted);margin-top:4px}
+    .result-main .sub{font-size:.82rem;color:var(--text-muted);margin-top:10px;border-top:1px solid var(--border);padding-top:10px}
+    .results-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+    .result-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+    .result-card .value{font-size:1.8rem;font-weight:800;color:var(--primary);line-height:1;margin-bottom:4px}
+    .result-card .unit{font-size:.78rem;color:var(--text-muted)}
+    .food-section{margin-top:16px}
+    .food-section h3{font-size:.82rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+    .food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:8px}
+    .food-item{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;font-size:.82rem}
+    .food-item .emoji{font-size:1.4rem;display:block;margin-bottom:4px}
+    .food-item .food-val{font-weight:700;color:var(--text)}
+    .food-item .food-name{color:var(--text-muted);font-size:.75rem}
+    .weight-table{max-width:540px;margin:0 auto 40px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+    .weight-table h3{padding:16px 20px;font-size:.95rem;font-weight:700;border-bottom:1px solid var(--border)}
+    .weight-table table{width:100%;border-collapse:collapse;font-size:.85rem}
+    .weight-table th{background:var(--surface2);padding:10px 16px;text-align:left;color:var(--text-muted);font-weight:600}
+    .weight-table td{padding:10px 16px;border-top:1px solid var(--border);color:#ccc}
+    .weight-table tr.highlight td{color:var(--primary);font-weight:700}
+    .crosslinks{max-width:540px;margin:0 auto 40px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .crosslink-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+    .crosslink-card a{color:var(--text);text-decoration:none;font-size:.8rem;font-weight:600}
+    .crosslink-card a:hover{color:var(--primary)}
+    .crosslink-card .icon{font-size:1.3rem;display:block;margin-bottom:6px}
+    .article{max-width:680px;margin:0 auto 60px;padding:0 24px}
+    .article h2{font-size:1.3rem;font-weight:700;margin:32px 0 12px}
+    .article p{color:#bbb;margin-bottom:14px;line-height:1.75}
+    .faq{max-width:680px;margin:0 auto 60px;padding:0 24px}
+    .faq h2{font-size:1.3rem;font-weight:700;margin-bottom:16px}
+    .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;overflow:hidden}
+    .faq-q{cursor:pointer;font-weight:600;font-size:.95rem;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;user-select:none}
+    .faq-q::after{content:'+';font-size:1.3rem;color:var(--primary);font-weight:400;flex-shrink:0;margin-left:12px}
+    .faq-item.open .faq-q::after{content:'-'}
+    .faq-a{display:none;padding:0 20px 16px;color:#bbb;font-size:.92rem;line-height:1.7}
+    .faq-item.open .faq-a{display:block}
+    footer{border-top:1px solid var(--border);padding:24px;text-align:center;color:var(--text-muted);font-size:.82rem}
+    footer a{color:var(--text-muted);text-decoration:none}
+    @media(max-width:480px){.calculator{padding:20px 16px;margin:0 16px 32px}.results-grid{grid-template-columns:1fr}.crosslinks{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">run<span>kcal</span></div>
+  <nav>
+    <a href="/">🏃 Running</a>
+    <a href="/walking/">🚶 Walking</a>
+    <a href="/treadmill/">🏋️ Treadmill</a>
+    <a href="/5k/">5K</a>
+    <a href="/10k/">10K</a>
+    <a href="/mile/" class="active">Mile</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Calories Burned Running <span>a Mile</span></h1>
+  <p>How many calories does running a mile burn? Enter your weight and pace for an instant, accurate result.</p>
+  <div class="badge-row">
+    <div class="badge">📏 Fixed distance: <strong>1 mile (1.609 km)</strong></div>
+    <div class="badge">🇺🇸 lbs / miles</div>
+    <div class="badge">🆓 Free, no signup</div>
+  </div>
+</div>
+
+<div class="calculator">
+  <div class="field">
+    <label>Your Weight</label>
+    <div class="input-row">
+      <input type="number" id="weight" placeholder="154" min="66" max="550" value="154">
+      <div class="unit-toggle">
+        <button class="active" id="btn-lbs" onclick="setWeightUnit('lbs')">lbs</button>
+        <button id="btn-kg" onclick="setWeightUnit('kg')">kg</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Running Pace</label>
+    <div class="pace-labels"><span>Jog</span><span>Easy</span><span>Moderate</span><span>Fast</span><span>Sprint</span></div>
+    <input type="range" id="pace" min="1" max="7" step="1" value="4" oninput="updatePaceLabel()">
+    <div class="pace-display" id="pace-display">Moderate run — 10 min/mile</div>
+  </div>
+
+  <div class="field">
+    <label>Sex</label>
+    <div class="sex-toggle">
+      <button class="active" id="btn-m" onclick="setSex('m')">Male</button>
+      <button id="btn-f" onclick="setSex('f')">Female</button>
+    </div>
+  </div>
+
+  <button class="calc-btn" onclick="calculate()">Calculate Mile Calories</button>
+
+  <div class="results" id="results">
+    <div class="result-main">
+      <div class="value" id="res-total">0</div>
+      <div class="unit">calories burned per mile</div>
+      <div class="sub" id="time-note">Estimated time: —</div>
+    </div>
+    <div class="results-grid">
+      <div class="result-card"><div class="value" id="res-5miles">0</div><div class="unit">kcal for 5 miles</div></div>
+      <div class="result-card"><div class="value" id="res-per-min">0</div><div class="unit">kcal / min</div></div>
+    </div>
+    <div class="food-section">
+      <h3>That's equivalent to</h3>
+      <div class="food-grid" id="food-grid"></div>
+    </div>
+  </div>
+</div>
+
+<div class="weight-table">
+  <h3>Calories Burned Running a Mile by Weight</h3>
+  <table>
+    <tr><th>Weight</th><th>Calories / mile</th><th>10 min/mile pace</th></tr>
+    <tr><td>120 lbs (54 kg)</td><td>~85 cal</td><td>~85</td></tr>
+    <tr><td>140 lbs (64 kg)</td><td>~99 cal</td><td>~99</td></tr>
+    <tr class="highlight"><td>154 lbs (70 kg)</td><td>~109 cal</td><td>~109</td></tr>
+    <tr><td>180 lbs (82 kg)</td><td>~127 cal</td><td>~127</td></tr>
+    <tr><td>200 lbs (91 kg)</td><td>~142 cal</td><td>~142</td></tr>
+    <tr><td>220 lbs (100 kg)</td><td>~156 cal</td><td>~156</td></tr>
+  </table>
+</div>
+
+<div class="crosslinks">
+  <div class="crosslink-card"><span class="icon">5️⃣</span><a href="/5k/">5K Calculator</a></div>
+  <div class="crosslink-card"><span class="icon">🔟</span><a href="/10k/">10K Calculator</a></div>
+  <div class="crosslink-card"><span class="icon">🏋️</span><a href="/treadmill/">Treadmill</a></div>
+</div>
+
+<div class="article">
+  <h2>How Many Calories Does Running a Mile Burn?</h2>
+  <p>Running a mile burns approximately <strong>80–160 calories</strong> depending on body weight. The popular rule of thumb — <strong>"about 1 calorie per pound per mile"</strong> — is surprisingly accurate. A 154 lb (70 kg) runner burns roughly 100–110 calories per mile at moderate pace.</p>
+
+  <h2>Why Weight Matters More Than Pace</h2>
+  <p>Running a mile fast (7 min/mile) vs slow (12 min/mile) burns almost the <strong>same total calories</strong>. The higher MET of fast running is offset by the shorter duration. What actually changes your calorie burn is body weight — a 200 lb runner burns ~40% more calories per mile than a 140 lb runner at the same pace.</p>
+
+  <h2>How Many Miles to Burn 500 Calories?</h2>
+  <p>Using the 1 cal/lb/mile rule: a 150 lb person needs ~3.3 miles; a 200 lb person needs ~2.5 miles; a 120 lb person needs ~4.2 miles. Running more miles is more effective than running faster for maximizing total calorie burn.</p>
+
+  <h2>Mile vs Kilometer — Calorie Difference</h2>
+  <p>1 mile = 1.609 km. If you burn 100 calories per mile, you burn ~62 calories per km. Use our <a href="/" style="color:var(--primary)">running calorie calculator</a> to work in kilometers, or our <a href="/5k/" style="color:var(--primary)">5K calculator</a> for 3.1 mile runs.</p>
+</div>
+
+<div class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many calories does running a mile burn?</div><div class="faq-a">Between 80–160 calories depending on body weight. The simple rule: approximately 1 calorie per pound of bodyweight per mile. A 154 lb person burns ~100–110 calories per mile.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Does running speed affect calories burned per mile?</div><div class="faq-a">Very little. Running a mile in 7 minutes vs 12 minutes burns nearly the same total calories. Body weight is the dominant factor, not pace.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many miles do I need to run to lose 1 pound?</div><div class="faq-a">One pound of fat = ~3,500 calories. At 100 calories/mile (154 lb runner), you'd need to run ~35 miles to burn 3,500 calories from running alone. In practice, combine running with a modest calorie deficit.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many calories does running 3 miles burn?</div><div class="faq-a">Running 3 miles burns approximately 240–480 calories depending on weight. A 154 lb runner burns ~330 calories for 3 miles. Use the calculator above and multiply by 3.</div></div>
+</div>
+
+<footer>
+  <p>© 2025 runkcal.com — Free Running Calorie Calculators |
+    <a href="/">Running</a> · <a href="/walking/">Walking</a> · <a href="/treadmill/">Treadmill</a> · <a href="/5k/">5K</a> · <a href="/10k/">10K</a> · <a href="/mile/">Mile</a> |
+    <a href="mailto:hello@runkcal.com">Contact</a>
+  </p>
+</footer>
+
+<script>
+  // 1 mile = 1.60934 km
+  const MILE_KM = 1.60934;
+  let weightUnit='lbs', sex='m';
+
+  // pace in min/mile format, speed in km/h
+  const P=[
+    {l:'Slow jog — 12 min/mile',  m:6.0,  kmh:8.05},
+    {l:'Easy run — 11 min/mile',  m:7.0,  kmh:8.77},
+    {l:'Easy run — 10.5 min/mile',m:7.5,  kmh:9.19},
+    {l:'Moderate run — 10 min/mile', m:8.3, kmh:9.66},
+    {l:'Fast run — 9 min/mile',   m:9.0,  kmh:10.73},
+    {l:'Fast run — 8 min/mile',   m:10.0, kmh:12.07},
+    {l:'Sprint — 7 min/mile',     m:11.5, kmh:13.80},
+  ];
+  const F=[
+    {e:'🍌',n:'Banana',c:89},
+    {e:'🍪',n:'Cookie',c:150},
+    {e:'🥤',n:'Soda (12oz)',c:140},
+    {e:'🍫',n:'Choc bar',c:230},
+    {e:'🥚',n:'Egg',c:78},
+    {e:'🍎',n:'Apple',c:95}
+  ];
+
+  function setWeightUnit(u){
+    const w=parseFloat(document.getElementById('weight').value)||154;
+    if(u==='kg'&&weightUnit==='lbs') document.getElementById('weight').value=Math.round(w/2.205);
+    else if(u==='lbs'&&weightUnit==='kg') document.getElementById('weight').value=Math.round(w*2.205);
+    weightUnit=u;
+    document.getElementById('btn-kg').classList.toggle('active',u==='kg');
+    document.getElementById('btn-lbs').classList.toggle('active',u==='lbs');
+  }
+  function setSex(s){
+    sex=s;
+    document.getElementById('btn-m').classList.toggle('active',s==='m');
+    document.getElementById('btn-f').classList.toggle('active',s==='f');
+  }
+  function updatePaceLabel(){
+    document.getElementById('pace-display').textContent=P[document.getElementById('pace').value-1].l;
+  }
+  function calculate(){
+    let w=parseFloat(document.getElementById('weight').value)||154;
+    const p=P[document.getElementById('pace').value-1];
+    // convert to kg
+    const wkg = weightUnit==='lbs' ? w/2.205 : w;
+    const sf=sex==='f'?0.9:1;
+    const distKm=MILE_KM; // 1 mile in km
+    const dh=distKm/p.kmh; // hours
+    const t=p.m*wkg*dh*sf;
+    const mins=Math.floor(dh*60);
+    const secs=Math.round((dh*60-mins)*60);
+
+    anim('res-total',Math.round(t));
+    anim('res-5miles',Math.round(t*5));
+    anim('res-per-min',Math.round(t/(dh*60)));
+    document.getElementById('time-note').textContent=`Estimated time for 1 mile: ${mins}:${String(secs).padStart(2,'0')}`;
+    document.getElementById('food-grid').innerHTML=F.map(f=>`
+      <div class="food-item">
+        <span class="emoji">${f.e}</span>
+        <div class="food-val">x${(t/f.c).toFixed(1)}</div>
+        <div class="food-name">${f.n}</div>
+      </div>`).join('');
+    document.getElementById('results').classList.add('show');
+  }
+  function anim(id,end){
+    const el=document.getElementById(id),t0=performance.now();
+    (function s(now){
+      const p=Math.min((now-t0)/700,1);
+      el.textContent=Math.round(end*(1-Math.pow(1-p,3)));
+      if(p<1)requestAnimationFrame(s)
+    })(t0)
+  }
+  function toggleFaq(el){el.closest('.faq-item').classList.toggle('open')}
+  updatePaceLabel();
+</script>
+</body>
+</html>
