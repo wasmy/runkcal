@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1381041586215537" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNZBVCGBQ7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VNZBVCGBQ7');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5K Calorie Calculator — Calories Burned Running a 5K</title>
+  <meta name="description" content="How many calories does running a 5K burn? Enter your weight and pace to get an instant result. Free 5K calorie calculator — no signup needed.">
+  <meta name="keywords" content="calories burned running a 5k, 5k calorie calculator, how many calories does a 5k burn, 5km run calories">
+  <link rel="canonical" href="https://runkcal.com/5k/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"5K Calorie Calculator","url":"https://runkcal.com/5k/","description":"Calculate calories burned running a 5K by weight and pace.","applicationCategory":"HealthApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many calories does running a 5K burn?","acceptedAnswer":{"@type":"Answer","text":"Running a 5K burns approximately 300–400 calories for an average adult. A 70 kg person burns around 350 kcal running 5km at moderate pace. Heavier runners burn more; lighter runners burn less."}},{"@type":"Question","name":"How many calories does a 5K burn by weight?","acceptedAnswer":{"@type":"Answer","text":"At moderate pace: 60kg = ~290 kcal, 70kg = ~350 kcal, 80kg = ~400 kcal, 90kg = ~450 kcal, 100kg = ~500 kcal. Use our calculator above for your exact weight."}},{"@type":"Question","name":"Does running pace affect 5K calories burned?","acceptedAnswer":{"@type":"Answer","text":"Pace affects calories per minute but surprisingly little per km. Running 5K fast vs slow burns roughly the same total calories — the extra MET from faster pace offsets the shorter time."}},{"@type":"Question","name":"How many calories in a 5K walk vs run?","acceptedAnswer":{"@type":"Answer","text":"Walking 5K burns roughly 200–260 kcal; running 5K burns 280–400 kcal for the same person. Running burns 30–50% more per km due to higher MET value."}}]}</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--primary:#ff5c2b;--primary-dark:#e04a1e;--bg:#0f0f0f;--surface:#1a1a1a;--surface2:#242424;--border:#2e2e2e;--text:#f0f0f0;--text-muted:#888;--radius:12px}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    header{background:var(--surface);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .logo{font-size:1.3rem;font-weight:800;color:var(--primary)}.logo span{color:var(--text)}
+    nav{display:flex;gap:6px;flex-wrap:wrap}
+    nav a{color:var(--text-muted);text-decoration:none;font-size:.82rem;font-weight:600;padding:6px 12px;border-radius:6px;border:1px solid var(--border);transition:all .15s}
+    nav a:hover,nav a.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .hero{text-align:center;padding:48px 24px 32px;max-width:680px;margin:0 auto}
+    .hero h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;line-height:1.2;margin-bottom:12px}
+    .hero h1 span{color:var(--primary)}
+    .hero p{color:var(--text-muted);font-size:1rem;max-width:500px;margin:0 auto}
+    .badge-row{display:flex;justify-content:center;gap:8px;margin-top:16px;flex-wrap:wrap}
+    .badge{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:.78rem;color:var(--text-muted)}
+    .badge strong{color:var(--text)}
+    .calculator{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:540px;margin:0 auto 40px}
+    .field{margin-bottom:20px}
+    .field label{display:block;font-size:.82rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+    .input-row{display:flex;gap:8px}
+    .input-row input{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:1.1rem;padding:12px 14px;outline:none;transition:border-color .2s}
+    .input-row input:focus{border-color:var(--primary)}
+    .unit-toggle{display:flex;background:var(--surface2);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+    .unit-toggle button{flex:1;background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:.85rem;font-weight:600;padding:12px 14px;transition:background .15s,color .15s}
+    .unit-toggle button.active{background:var(--primary);color:#fff}
+    .pace-labels{display:flex;justify-content:space-between;font-size:.72rem;color:var(--text-muted);margin-bottom:6px}
+    input[type="range"]{-webkit-appearance:none;width:100%;height:6px;background:var(--surface2);border-radius:3px;outline:none;cursor:pointer}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--primary);cursor:pointer}
+    .pace-display{text-align:center;margin-top:8px;font-size:.9rem;font-weight:600;color:var(--primary)}
+    .sex-toggle{display:flex;gap:8px}
+    .sex-toggle button{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text-muted);cursor:pointer;font-size:.9rem;font-weight:600;padding:12px;transition:all .15s}
+    .sex-toggle button.active{background:var(--primary);border-color:var(--primary);color:#fff}
+    .calc-btn{width:100%;background:var(--primary);border:none;border-radius:8px;color:#fff;cursor:pointer;font-size:1rem;font-weight:700;padding:15px;margin-top:8px;transition:background .15s}
+    .calc-btn:hover{background:var(--primary-dark)}
+    .results{display:none;margin-top:24px;border-top:1px solid var(--border);padding-top:24px}
+    .results.show{display:block}
+    .result-main{background:linear-gradient(135deg,#ff5c2b22,#ff5c2b11);border:2px solid var(--primary);border-radius:12px;padding:28px;text-align:center;margin-bottom:12px}
+    .result-main .value{font-size:3.5rem;font-weight:800;color:var(--primary);line-height:1}
+    .result-main .unit{font-size:.9rem;color:var(--text-muted);margin-top:4px}
+    .result-main .time-note{font-size:.82rem;color:var(--text-muted);margin-top:10px;border-top:1px solid var(--border);padding-top:10px}
+    .results-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+    .result-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+    .result-card .value{font-size:1.8rem;font-weight:800;color:var(--primary);line-height:1;margin-bottom:4px}
+    .result-card .unit{font-size:.78rem;color:var(--text-muted)}
+    .food-section{margin-top:16px}
+    .food-section h3{font-size:.82rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+    .food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:8px}
+    .food-item{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;font-size:.82rem}
+    .food-item .emoji{font-size:1.4rem;display:block;margin-bottom:4px}
+    .food-item .food-val{font-weight:700;color:var(--text)}
+    .food-item .food-name{color:var(--text-muted);font-size:.75rem}
+    .weight-table{max-width:540px;margin:0 auto 40px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+    .weight-table h3{padding:16px 20px;font-size:.95rem;font-weight:700;border-bottom:1px solid var(--border)}
+    .weight-table table{width:100%;border-collapse:collapse;font-size:.85rem}
+    .weight-table th{background:var(--surface2);padding:10px 16px;text-align:left;color:var(--text-muted);font-weight:600}
+    .weight-table td{padding:10px 16px;border-top:1px solid var(--border);color:#ccc}
+    .weight-table tr.highlight td{color:var(--primary);font-weight:700}
+    .crosslinks{max-width:540px;margin:0 auto 40px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+    .crosslink-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+    .crosslink-card a{color:var(--text);text-decoration:none;font-size:.82rem;font-weight:600}
+    .crosslink-card a:hover{color:var(--primary)}
+    .crosslink-card .icon{font-size:1.4rem;display:block;margin-bottom:6px}
+    .article{max-width:680px;margin:0 auto 60px;padding:0 24px}
+    .article h2{font-size:1.3rem;font-weight:700;margin:32px 0 12px}
+    .article p{color:#bbb;margin-bottom:14px;line-height:1.75}
+    .faq{max-width:680px;margin:0 auto 60px;padding:0 24px}
+    .faq h2{font-size:1.3rem;font-weight:700;margin-bottom:16px}
+    .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;overflow:hidden}
+    .faq-q{cursor:pointer;font-weight:600;font-size:.95rem;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;user-select:none}
+    .faq-q::after{content:'+';font-size:1.3rem;color:var(--primary);font-weight:400;flex-shrink:0;margin-left:12px}
+    .faq-item.open .faq-q::after{content:'-'}
+    .faq-a{display:none;padding:0 20px 16px;color:#bbb;font-size:.92rem;line-height:1.7}
+    .faq-item.open .faq-a{display:block}
+    footer{border-top:1px solid var(--border);padding:24px;text-align:center;color:var(--text-muted);font-size:.82rem}
+    footer a{color:var(--text-muted);text-decoration:none}
+    @media(max-width:480px){.calculator{padding:20px 16px;margin:0 16px 32px}.results-grid{grid-template-columns:1fr}.crosslinks{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">run<span>kcal</span></div>
+  <nav>
+    <a href="/">🏃 Running</a>
+    <a href="/walking/">🚶 Walking</a>
+    <a href="/treadmill/">🏋️ Treadmill</a>
+    <a href="/5k/" class="active">5K</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Calories Burned Running a <span>5K</span></h1>
+  <p>How many calories does a 5K burn? Enter your weight and pace for an instant, accurate result.</p>
+  <div class="badge-row">
+    <div class="badge">📏 Fixed distance: <strong>5 km</strong></div>
+    <div class="badge">⚡ MET formula</div>
+    <div class="badge">🆓 Free, no signup</div>
+  </div>
+</div>
+
+<div class="calculator">
+  <div class="field">
+    <label>Your Weight</label>
+    <div class="input-row">
+      <input type="number" id="weight" placeholder="70" min="30" max="250" value="70">
+      <div class="unit-toggle">
+        <button class="active" id="btn-kg" onclick="setWeightUnit('kg')">kg</button>
+        <button id="btn-lbs" onclick="setWeightUnit('lbs')">lbs</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Running Pace</label>
+    <div class="pace-labels"><span>Slow</span><span>Easy</span><span>Moderate</span><span>Fast</span><span>Sprint</span></div>
+    <input type="range" id="pace" min="1" max="7" step="1" value="4" oninput="updatePaceLabel()">
+    <div class="pace-display" id="pace-display">Moderate run — ~10 km/h</div>
+  </div>
+
+  <div class="field">
+    <label>Sex</label>
+    <div class="sex-toggle">
+      <button class="active" id="btn-m" onclick="setSex('m')">Male</button>
+      <button id="btn-f" onclick="setSex('f')">Female</button>
+    </div>
+  </div>
+
+  <button class="calc-btn" onclick="calculate()">Calculate 5K Calories</button>
+
+  <div class="results" id="results">
+    <div class="result-main">
+      <div class="value" id="res-total">0</div>
+      <div class="unit">kcal burned running 5K</div>
+      <div class="time-note" id="time-note">Estimated finish time: —</div>
+    </div>
+    <div class="results-grid">
+      <div class="result-card"><div class="value" id="res-per-km">0</div><div class="unit">kcal / km</div></div>
+      <div class="result-card"><div class="value" id="res-per-min">0</div><div class="unit">kcal / min</div></div>
+    </div>
+    <div class="food-section">
+      <h3>That's equivalent to</h3>
+      <div class="food-grid" id="food-grid"></div>
+    </div>
+  </div>
+</div>
+
+<div class="weight-table">
+  <h3>5K Calories Burned by Weight (Moderate Pace ~10 km/h)</h3>
+  <table>
+    <tr><th>Weight</th><th>kcal burned</th><th>Finish time</th></tr>
+    <tr><td>50 kg / 110 lbs</td><td>245 kcal</td><td>~30 min</td></tr>
+    <tr><td>60 kg / 132 lbs</td><td>295 kcal</td><td>~30 min</td></tr>
+    <tr class="highlight"><td>70 kg / 154 lbs</td><td>345 kcal</td><td>~30 min</td></tr>
+    <tr><td>80 kg / 176 lbs</td><td>395 kcal</td><td>~30 min</td></tr>
+    <tr><td>90 kg / 198 lbs</td><td>445 kcal</td><td>~30 min</td></tr>
+    <tr><td>100 kg / 220 lbs</td><td>494 kcal</td><td>~30 min</td></tr>
+  </table>
+</div>
+
+<div class="crosslinks">
+  <div class="crosslink-card"><span class="icon">🏃</span><a href="/">Running Calculator</a></div>
+  <div class="crosslink-card"><span class="icon">🏋️</span><a href="/treadmill/">Treadmill Calculator</a></div>
+  <div class="crosslink-card"><span class="icon">🚶</span><a href="/walking/">Walking Calculator</a></div>
+</div>
+
+<div class="article">
+  <h2>How Many Calories Does a 5K Burn?</h2>
+  <p>A 5K run (5 kilometers / 3.1 miles) burns <strong>280–500 kcal</strong> depending on your body weight. The simple rule: you burn roughly <strong>1 kcal per kg per km</strong>. So a 70 kg runner burns about 70 × 5 = 350 kcal per 5K, regardless of pace.</p>
+
+  <h2>Does Pace Affect 5K Calorie Burn?</h2>
+  <p>Surprisingly little. Running 5K fast (25 min) vs slow (40 min) burns very similar total calories — faster pace has higher MET (more intensity per minute) but finishes sooner. The main factor is your <strong>body weight</strong>, not your speed. Heavier runners burn significantly more calories for the same distance.</p>
+
+  <h2>5K vs 10K Calories</h2>
+  <p>A 10K burns approximately <strong>twice the calories</strong> of a 5K, since distance doubles at the same pace and weight. A 70 kg runner burns ~350 kcal for 5K and ~700 kcal for 10K. See our <a href="/10k/" style="color:var(--primary)">10K calorie calculator</a> for exact numbers.</p>
+
+  <h2>How to Burn More Calories on Your 5K</h2>
+  <p>The most effective levers: (1) <strong>Run on hills</strong> — each 1% incline adds ~10% more calories, (2) <strong>Add intervals</strong> — alternating sprints and easy pace increases post-run calorie burn, (3) <strong>Run heavier</strong> — carrying a weighted vest increases burn proportionally.</p>
+</div>
+
+<div class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many calories does running a 5K burn?</div><div class="faq-a">Between 280–500 kcal depending on body weight. The rough rule is 1 kcal per kg of bodyweight per km — so a 70 kg person burns ~350 kcal for a 5K.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Does pace affect how many calories a 5K burns?</div><div class="faq-a">Very little. Running fast vs slow burns nearly the same total calories over 5K because higher speed = higher MET but shorter time. Body weight is the dominant factor.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many calories does a 5K burn for a woman?</div><div class="faq-a">Women burn slightly fewer calories than men at the same weight and pace, roughly 8–10% less. A 60 kg woman running a 5K burns approximately 260–280 kcal at moderate pace.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can running a 5K every day help lose weight?</div><div class="faq-a">Yes — running 5K daily burns 1,750–3,500 kcal per week (250–500 kcal/day), which can create a meaningful calorie deficit for weight loss when combined with stable nutrition.</div></div>
+</div>
+
+<footer>
+  <p>© 2025 runkcal.com — Free Running Calorie Calculators |
+    <a href="/">Running</a> · <a href="/walking/">Walking</a> · <a href="/treadmill/">Treadmill</a> · <a href="/5k/">5K</a> |
+    <a href="mailto:hello@runkcal.com">Contact</a>
+  </p>
+</footer>
+
+<script>
+  let weightUnit='kg', sex='m';
+  const P=[
+    {l:'Light jog ~7km/h', m:6.0, k:7},
+    {l:'Easy run ~8km/h',  m:7.0, k:8},
+    {l:'Easy run ~9km/h',  m:7.5, k:9},
+    {l:'Moderate run ~10km/h', m:8.3, k:10},
+    {l:'Fast run ~11km/h', m:9.0, k:11},
+    {l:'Fast run ~12km/h', m:10.0, k:12},
+    {l:'Sprint ~14km/h',   m:11.5, k:14},
+  ];
+  const F=[
+    {e:'🍌',n:'Bananas',c:89},
+    {e:'🍕',n:'Pizza slice',c:285},
+    {e:'🍺',n:'Beer',c:150},
+    {e:'🍫',n:'Chocolate bar',c:230},
+    {e:'🥚',n:'Eggs',c:78},
+    {e:'🍎',n:'Apples',c:95}
+  ];
+
+  function setWeightUnit(u){
+    const w=parseFloat(document.getElementById('weight').value)||70;
+    if(u==='lbs'&&weightUnit==='kg') document.getElementById('weight').value=Math.round(w*2.205);
+    else if(u==='kg'&&weightUnit==='lbs') document.getElementById('weight').value=Math.round(w/2.205);
+    weightUnit=u;
+    document.getElementById('btn-kg').classList.toggle('active',u==='kg');
+    document.getElementById('btn-lbs').classList.toggle('active',u==='lbs');
+  }
+  function setSex(s){
+    sex=s;
+    document.getElementById('btn-m').classList.toggle('active',s==='m');
+    document.getElementById('btn-f').classList.toggle('active',s==='f');
+  }
+  function updatePaceLabel(){
+    document.getElementById('pace-display').textContent=P[document.getElementById('pace').value-1].l;
+  }
+  function calculate(){
+    let w=parseFloat(document.getElementById('weight').value)||70;
+    const p=P[document.getElementById('pace').value-1];
+    if(weightUnit==='lbs') w/=2.205;
+    const sf=sex==='f'?0.9:1;
+    const dist=5; // fixed 5km
+    const dh=dist/p.k;
+    const t=p.m*w*dh*sf;
+    const mins=Math.round(dh*60);
+    const mm=Math.floor(mins);
+    const ss=Math.round((dh*60-mm)*60);
+
+    anim('res-total',Math.round(t));
+    anim('res-per-km',Math.round(t/dist));
+    anim('res-per-min',Math.round(t/(dh*60)));
+    document.getElementById('time-note').textContent=`Estimated finish time: ${mm}:${String(ss).padStart(2,'0')} min`;
+    document.getElementById('food-grid').innerHTML=F.map(f=>`
+      <div class="food-item">
+        <span class="emoji">${f.e}</span>
+        <div class="food-val">x${(t/f.c).toFixed(1)}</div>
+        <div class="food-name">${f.n}</div>
+      </div>`).join('');
+    document.getElementById('results').classList.add('show');
+  }
+  function anim(id,end){
+    const el=document.getElementById(id),t0=performance.now();
+    (function s(now){
+      const p=Math.min((now-t0)/700,1);
+      el.textContent=Math.round(end*(1-Math.pow(1-p,3)));
+      if(p<1)requestAnimationFrame(s)
+    })(t0)
+  }
+  function toggleFaq(el){el.closest('.faq-item').classList.toggle('open')}
+  updatePaceLabel();
+</script>
+</body>
+</html>
