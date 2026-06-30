@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1381041586215537" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNZBVCGBQ7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VNZBVCGBQ7');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marathon Calorie Calculator — Calories Burned Running a Marathon</title>
+  <meta name="description" content="How many calories does a marathon burn? Enter your weight and pace for an instant result. Free marathon calorie calculator — 26.2 miles / 42.2 km.">
+  <meta name="keywords" content="marathon calorie calculator, calories burned running a marathon, how many calories does a marathon burn, 26.2 miles calories burned">
+  <link rel="canonical" href="https://runkcal.com/marathon/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Marathon Calorie Calculator","url":"https://runkcal.com/marathon/","description":"Calculate calories burned running a marathon by weight and pace.","applicationCategory":"HealthApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many calories does running a marathon burn?","acceptedAnswer":{"@type":"Answer","text":"A marathon (42.2 km / 26.2 miles) burns approximately 2,500–4,000 calories depending on body weight. A 70 kg runner burns around 2,900–3,000 kcal. The rule: 1 kcal per kg per km — so 70 × 42.2 ≈ 2,954 kcal."}},{"@type":"Question","name":"How many calories does a marathon burn by weight?","acceptedAnswer":{"@type":"Answer","text":"At moderate pace: 60kg = ~2,460 kcal, 70kg = ~2,870 kcal, 80kg = ~3,280 kcal, 90kg = ~3,690 kcal, 100kg = ~4,100 kcal."}},{"@type":"Question","name":"Why do marathon runners hit the wall?","acceptedAnswer":{"@type":"Answer","text":"'Hitting the wall' happens around mile 18–20 when glycogen stores (roughly 2,000 kcal) are depleted. The body switches to fat oxidation, which is slower and causes dramatic pace slowdown. Proper fueling with gels every 30–45 min delays this."}},{"@type":"Question","name":"How much should I eat before a marathon?","acceptedAnswer":{"@type":"Answer","text":"Carb-load 2–3 days before: 8–10g carbs per kg bodyweight per day. Race morning: 200–400 kcal of easily digestible carbs 2–3 hours before start. During the race: 60–90g carbs per hour from gels, chews, or sports drinks."}}]}</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--primary:#ff5c2b;--primary-dark:#e04a1e;--bg:#0f0f0f;--surface:#1a1a1a;--surface2:#242424;--border:#2e2e2e;--text:#f0f0f0;--text-muted:#888;--radius:12px}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    header{background:var(--surface);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .logo{font-size:1.3rem;font-weight:800;color:var(--primary)}.logo span{color:var(--text)}
+    nav{display:flex;gap:6px;flex-wrap:wrap}
+    nav a{color:var(--text-muted);text-decoration:none;font-size:.82rem;font-weight:600;padding:6px 12px;border-radius:6px;border:1px solid var(--border);transition:all .15s}
+    nav a:hover,nav a.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .hero{text-align:center;padding:48px 24px 32px;max-width:680px;margin:0 auto}
+    .hero h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;line-height:1.2;margin-bottom:12px}
+    .hero h1 span{color:var(--primary)}
+    .hero p{color:var(--text-muted);font-size:1rem;max-width:500px;margin:0 auto}
+    .badge-row{display:flex;justify-content:center;gap:8px;margin-top:16px;flex-wrap:wrap}
+    .badge{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:.78rem;color:var(--text-muted)}
+    .badge strong{color:var(--text)}
+    .calculator{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:540px;margin:0 auto 40px}
+    .field{margin-bottom:20px}
+    .field label{display:block;font-size:.82rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+    .input-row{display:flex;gap:8px}
+    .input-row input{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:1.1rem;padding:12px 14px;outline:none;transition:border-color .2s}
+    .input-row input:focus{border-color:var(--primary)}
+    .unit-toggle{display:flex;background:var(--surface2);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+    .unit-toggle button{flex:1;background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:.85rem;font-weight:600;padding:12px 14px;transition:background .15s,color .15s}
+    .unit-toggle button.active{background:var(--primary);color:#fff}
+    .pace-labels{display:flex;justify-content:space-between;font-size:.72rem;color:var(--text-muted);margin-bottom:6px}
+    input[type="range"]{-webkit-appearance:none;width:100%;height:6px;background:var(--surface2);border-radius:3px;outline:none;cursor:pointer}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--primary);cursor:pointer}
+    .pace-display{text-align:center;margin-top:8px;font-size:.9rem;font-weight:600;color:var(--primary)}
+    .sex-toggle{display:flex;gap:8px}
+    .sex-toggle button{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text-muted);cursor:pointer;font-size:.9rem;font-weight:600;padding:12px;transition:all .15s}
+    .sex-toggle button.active{background:var(--primary);border-color:var(--primary);color:#fff}
+    .calc-btn{width:100%;background:var(--primary);border:none;border-radius:8px;color:#fff;cursor:pointer;font-size:1rem;font-weight:700;padding:15px;margin-top:8px;transition:background .15s}
+    .calc-btn:hover{background:var(--primary-dark)}
+    .results{display:none;margin-top:24px;border-top:1px solid var(--border);padding-top:24px}
+    .results.show{display:block}
+    .result-main{background:linear-gradient(135deg,#ff5c2b22,#ff5c2b11);border:2px solid var(--primary);border-radius:12px;padding:28px;text-align:center;margin-bottom:12px}
+    .result-main .value{font-size:3.5rem;font-weight:800;color:var(--primary);line-height:1}
+    .result-main .unit{font-size:.9rem;color:var(--text-muted);margin-top:4px}
+    .result-main .sub{font-size:.82rem;color:var(--text-muted);margin-top:10px;border-top:1px solid var(--border);padding-top:10px}
+    .results-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+    .result-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+    .result-card .value{font-size:1.8rem;font-weight:800;color:var(--primary);line-height:1;margin-bottom:4px}
+    .result-card .unit{font-size:.78rem;color:var(--text-muted)}
+    .wall-alert{background:#ff5c2b11;border:1px solid #ff5c2b44;border-radius:10px;padding:14px 16px;margin-bottom:12px;font-size:.85rem;color:#ffaa88}
+    .wall-alert strong{color:var(--primary)}
+    .fuel-section{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px}
+    .fuel-section h3{font-size:.82rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+    .fuel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .fuel-item{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;font-size:.8rem}
+    .fuel-item .emoji{font-size:1.2rem;display:block;margin-bottom:4px}
+    .fuel-item .fval{font-weight:700;color:var(--primary)}
+    .fuel-item .fname{color:var(--text-muted);font-size:.72rem}
+    .weight-table{max-width:540px;margin:0 auto 40px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+    .weight-table h3{padding:16px 20px;font-size:.95rem;font-weight:700;border-bottom:1px solid var(--border)}
+    .weight-table table{width:100%;border-collapse:collapse;font-size:.85rem}
+    .weight-table th{background:var(--surface2);padding:10px 16px;text-align:left;color:var(--text-muted);font-weight:600}
+    .weight-table td{padding:10px 16px;border-top:1px solid var(--border);color:#ccc}
+    .weight-table tr.highlight td{color:var(--primary);font-weight:700}
+    .crosslinks{max-width:540px;margin:0 auto 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .crosslink-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+    .crosslink-card a{color:var(--text);text-decoration:none;font-size:.8rem;font-weight:600}
+    .crosslink-card a:hover{color:var(--primary)}
+    .crosslink-card .icon{font-size:1.3rem;display:block;margin-bottom:6px}
+    .article{max-width:680px;margin:0 auto 60px;padding:0 24px}
+    .article h2{font-size:1.3rem;font-weight:700;margin:32px 0 12px}
+    .article p{color:#bbb;margin-bottom:14px;line-height:1.75}
+    .faq{max-width:680px;margin:0 auto 60px;padding:0 24px}
+    .faq h2{font-size:1.3rem;font-weight:700;margin-bottom:16px}
+    .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;overflow:hidden}
+    .faq-q{cursor:pointer;font-weight:600;font-size:.95rem;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;user-select:none}
+    .faq-q::after{content:'+';font-size:1.3rem;color:var(--primary);font-weight:400;flex-shrink:0;margin-left:12px}
+    .faq-item.open .faq-q::after{content:'-'}
+    .faq-a{display:none;padding:0 20px 16px;color:#bbb;font-size:.92rem;line-height:1.7}
+    .faq-item.open .faq-a{display:block}
+    footer{border-top:1px solid var(--border);padding:24px;text-align:center;color:var(--text-muted);font-size:.82rem}
+    footer a{color:var(--text-muted);text-decoration:none}
+    @media(max-width:480px){.calculator{padding:20px 16px;margin:0 16px 32px}.results-grid{grid-template-columns:1fr}.crosslinks{grid-template-columns:1fr 1fr}.fuel-grid{grid-template-columns:repeat(2,1fr)}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">run<span>kcal</span></div>
+  <nav>
+    <a href="/">🏃 Running</a>
+    <a href="/walking/">🚶 Walking</a>
+    <a href="/treadmill/">🏋️ Treadmill</a>
+    <a href="/5k/">5K</a>
+    <a href="/10k/">10K</a>
+    <a href="/half-marathon/">Half</a>
+    <a href="/marathon/" class="active">Marathon</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1><span>Marathon</span> Calorie Calculator</h1>
+  <p>How many calories does a marathon burn? Enter your weight and pace — get your result plus a fueling plan.</p>
+  <div class="badge-row">
+    <div class="badge">📏 <strong>42.2 km / 26.2 miles</strong></div>
+    <div class="badge">⚡ MET formula</div>
+    <div class="badge">🆓 Free, no signup</div>
+  </div>
+</div>
+
+<div class="calculator">
+  <div class="field">
+    <label>Your Weight</label>
+    <div class="input-row">
+      <input type="number" id="weight" placeholder="70" min="30" max="250" value="70">
+      <div class="unit-toggle">
+        <button class="active" id="btn-kg" onclick="setWeightUnit('kg')">kg</button>
+        <button id="btn-lbs" onclick="setWeightUnit('lbs')">lbs</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Running Pace</label>
+    <div class="pace-labels"><span>Beginner</span><span>Easy</span><span>Moderate</span><span>Fast</span><span>Elite</span></div>
+    <input type="range" id="pace" min="1" max="7" step="1" value="3" oninput="updatePaceLabel()">
+    <div class="pace-display" id="pace-display">Easy run — ~9 km/h (4:41 finish)</div>
+  </div>
+
+  <div class="field">
+    <label>Sex</label>
+    <div class="sex-toggle">
+      <button class="active" id="btn-m" onclick="setSex('m')">Male</button>
+      <button id="btn-f" onclick="setSex('f')">Female</button>
+    </div>
+  </div>
+
+  <button class="calc-btn" onclick="calculate()">Calculate Marathon Calories</button>
+
+  <div class="results" id="results">
+    <div class="result-main">
+      <div class="value" id="res-total">0</div>
+      <div class="unit">kcal burned — full marathon</div>
+      <div class="sub" id="time-note">Estimated finish time: —</div>
+    </div>
+    <div class="results-grid">
+      <div class="result-card"><div class="value" id="res-per-km">0</div><div class="unit">kcal / km</div></div>
+      <div class="result-card"><div class="value" id="res-per-min">0</div><div class="unit">kcal / min</div></div>
+    </div>
+    <div class="wall-alert" id="wall-alert">
+      ⚠️ <strong>The Wall:</strong> Your body stores ~1,800–2,000 kcal of glycogen. At this pace you'll hit empty around <span id="wall-km">—</span> km — fuel up every 30–45 min to avoid bonking.
+    </div>
+    <div class="fuel-section">
+      <h3>🍬 Race day fueling guide</h3>
+      <div class="fuel-grid" id="fuel-grid"></div>
+    </div>
+  </div>
+</div>
+
+<div class="weight-table">
+  <h3>Marathon Calories by Weight (Easy pace ~9 km/h)</h3>
+  <table>
+    <tr><th>Weight</th><th>kcal burned</th><th>Finish time</th></tr>
+    <tr><td>50 kg / 110 lbs</td><td>~2,060 kcal</td><td>~4:41</td></tr>
+    <tr><td>60 kg / 132 lbs</td><td>~2,470 kcal</td><td>~4:41</td></tr>
+    <tr class="highlight"><td>70 kg / 154 lbs</td><td>~2,880 kcal</td><td>~4:41</td></tr>
+    <tr><td>80 kg / 176 lbs</td><td>~3,290 kcal</td><td>~4:41</td></tr>
+    <tr><td>90 kg / 198 lbs</td><td>~3,700 kcal</td><td>~4:41</td></tr>
+    <tr><td>100 kg / 220 lbs</td><td>~4,110 kcal</td><td>~4:41</td></tr>
+  </table>
+</div>
+
+<div class="crosslinks">
+  <div class="crosslink-card"><span class="icon">½</span><a href="/half-marathon/">Half Marathon</a></div>
+  <div class="crosslink-card"><span class="icon">🔟</span><a href="/10k/">10K</a></div>
+  <div class="crosslink-card"><span class="icon">5️⃣</span><a href="/5k/">5K</a></div>
+  <div class="crosslink-card"><span class="icon">🏋️</span><a href="/treadmill/">Treadmill</a></div>
+</div>
+
+<div class="article">
+  <h2>How Many Calories Does a Marathon Burn?</h2>
+  <p>A marathon (42.2 km / 26.2 miles) burns approximately <strong>2,500–4,200 kcal</strong> depending on body weight. The reliable rule: <strong>1 kcal per kg per km</strong>. A 70 kg runner burns roughly 70 × 42.2 = 2,954 kcal — the equivalent of an entire day's food intake in a single event.</p>
+
+  <h2>Why Runners "Hit the Wall" at Mile 20</h2>
+  <p>Your body stores only 1,800–2,000 kcal of glycogen (muscle + liver). A marathon burns 2,500–4,000+ kcal. At some point — usually around km 30–35 (mile 18–21) — glycogen runs out and the body shifts to fat oxidation, which is 30–40% slower. This is "hitting the wall." The fix: consume 60–90g of carbs per hour from gels or sports drinks starting at km 10.</p>
+
+  <h2>Marathon vs Half Marathon Calories</h2>
+  <p>A full marathon burns approximately <strong>twice the calories</strong> of a half marathon — 2,900 vs 1,450 kcal for a 70 kg runner. However, post-race EPOC (afterburn) is also much higher, potentially adding 200–400 extra kcal over the following 24 hours.</p>
+
+  <h2>Marathon Nutrition Strategy</h2>
+  <p><strong>2–3 days before:</strong> Carb-load at 8–10g/kg/day. <strong>Race morning:</strong> 200–400 kcal carbs, 2–3 hours before start. <strong>During the race:</strong> 1 energy gel (100 kcal) every 30–45 minutes from km 10 onward = 6–9 gels total. <strong>After:</strong> 1–1.5g carbs/kg + 25–30g protein within 30 minutes of finishing.</p>
+</div>
+
+<div class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many calories does running a marathon burn?</div><div class="faq-a">Between 2,500–4,200 kcal depending on body weight. The rule: 1 kcal per kg per km. A 70 kg runner burns ~2,950 kcal for a full 42.2 km marathon.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Why do I gain weight after a marathon?</div><div class="faq-a">Temporary water retention from glycogen replenishment (each gram of glycogen stores 3g of water) and inflammation causes a 1–3 kg weight spike in the days following a marathon. It resolves within 5–7 days.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many gels do I need for a marathon?</div><div class="faq-a">Typically 6–10 gels (100 kcal each) for a 3:30–5:00 finish. Take one every 30–45 min starting at km 10. This replaces ~600–1,000 kcal of the ~2,900 kcal burned — enough to prevent glycogen depletion and the wall.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long does it take to lose the weight from training for a marathon?</div><div class="faq-a">Marathon training burns an extra 1,500–3,000 kcal/week. Over a 16-week plan that's 24,000–48,000 extra kcal burned — equivalent to 3–6 kg of fat, assuming diet stays the same. Most runners lose 2–4 kg during training.</div></div>
+</div>
+
+<footer>
+  <p>© 2025 runkcal.com — Free Running Calorie Calculators |
+    <a href="/">Running</a> · <a href="/walking/">Walking</a> · <a href="/treadmill/">Treadmill</a> · <a href="/5k/">5K</a> · <a href="/10k/">10K</a> · <a href="/mile/">Mile</a> · <a href="/half-marathon/">Half Marathon</a> · <a href="/marathon/">Marathon</a> |
+    <a href="mailto:hello@runkcal.com">Contact</a>
+  </p>
+</footer>
+
+<script>
+  let weightUnit='kg', sex='m';
+  const DIST = 42.2;
+  const GLYCOGEN = 1900; // avg stored kcal
+  const P=[
+    {l:'Beginner — ~7 km/h (6:01 finish)',     m:6.0, k:7},
+    {l:'Easy run — ~8 km/h (5:16 finish)',     m:7.0, k:8},
+    {l:'Easy run — ~9 km/h (4:41 finish)',     m:7.5, k:9},
+    {l:'Moderate — ~10 km/h (4:13 finish)',    m:8.3, k:10},
+    {l:'Fast run — ~11 km/h (3:50 finish)',    m:9.0, k:11},
+    {l:'Fast run — ~12 km/h (3:31 finish)',    m:10.0,k:12},
+    {l:'Competitive — ~14 km/h (3:01 finish)', m:11.0,k:14},
+  ];
+  const FUELS=[
+    {e:'🍬',n:'Energy gel',c:100},
+    {e:'🍌',n:'Banana',c:89},
+    {e:'🧃',n:'Sports drink',c:80},
+    {e:'🍇',n:'Energy chews',c:90},
+    {e:'🍫',n:'Energy bar',c:200},
+    {e:'🥤',n:'Cola (250ml)',c:105},
+  ];
+
+  function setWeightUnit(u){
+    const w=parseFloat(document.getElementById('weight').value)||70;
+    if(u==='lbs'&&weightUnit==='kg') document.getElementById('weight').value=Math.round(w*2.205);
+    else if(u==='kg'&&weightUnit==='lbs') document.getElementById('weight').value=Math.round(w/2.205);
+    weightUnit=u;
+    document.getElementById('btn-kg').classList.toggle('active',u==='kg');
+    document.getElementById('btn-lbs').classList.toggle('active',u==='lbs');
+  }
+  function setSex(s){
+    sex=s;
+    document.getElementById('btn-m').classList.toggle('active',s==='m');
+    document.getElementById('btn-f').classList.toggle('active',s==='f');
+  }
+  function updatePaceLabel(){
+    document.getElementById('pace-display').textContent=P[document.getElementById('pace').value-1].l;
+  }
+  function calculate(){
+    let w=parseFloat(document.getElementById('weight').value)||70;
+    const p=P[document.getElementById('pace').value-1];
+    if(weightUnit==='lbs') w/=2.205;
+    const sf=sex==='f'?0.9:1;
+    const dh=DIST/p.k;
+    const t=p.m*w*dh*sf;
+    const totalMins=dh*60;
+    const hh=Math.floor(totalMins/60);
+    const mm=Math.floor(totalMins%60);
+    const ss=Math.round((totalMins%1)*60);
+
+    anim('res-total',Math.round(t));
+    anim('res-per-km',Math.round(t/DIST));
+    anim('res-per-min',Math.round(t/totalMins));
+
+    const hh2=String(hh).padStart(1,'0');
+    const mm2=String(mm).padStart(2,'0');
+    document.getElementById('time-note').textContent=`Estimated finish time: ${hh2}h ${mm2}min`;
+
+    // Wall estimate: where does glycogen run out?
+    const kcalPerKm = t/DIST;
+    const wallKm = Math.round(GLYCOGEN / kcalPerKm);
+    document.getElementById('wall-km').textContent = Math.min(wallKm, 38);
+
+    // Fueling guide — replace ~60% of burned kcal via gels
+    document.getElementById('fuel-grid').innerHTML=FUELS.map(f=>`
+      <div class="fuel-item">
+        <span class="emoji">${f.e}</span>
+        <div class="fval">${Math.round(t*0.6/f.c)}x</div>
+        <div class="fname">${f.n}</div>
+      </div>`).join('');
+
+    document.getElementById('results').classList.add('show');
+  }
+  function anim(id,end){
+    const el=document.getElementById(id),t0=performance.now();
+    (function s(now){
+      const p=Math.min((now-t0)/700,1);
+      el.textContent=Math.round(end*(1-Math.pow(1-p,3)));
+      if(p<1)requestAnimationFrame(s)
+    })(t0)
+  }
+  function toggleFaq(el){el.closest('.faq-item').classList.toggle('open')}
+  updatePaceLabel();
+</script>
+</body>
+</html>
