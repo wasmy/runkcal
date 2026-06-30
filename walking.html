@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1381041586215537" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNZBVCGBQ7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VNZBVCGBQ7');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Walking Calorie Calculator — Free Walk kcal Calculator</title>
+  <meta name="description" content="Free walking calorie calculator. Find calories burned walking by weight, distance and pace. Works in km/mi, metric/imperial. No signup needed.">
+  <meta name="keywords" content="walking calorie calculator, walk kcal calculator, calories burned walking, steps to calories">
+  <link rel="canonical" href="https://runkcal.com/walking/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Walking Calorie Calculator","url":"https://runkcal.com/walking/","description":"Free walking calorie calculator using the MET formula.","applicationCategory":"HealthApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many calories does walking burn per km?","acceptedAnswer":{"@type":"Answer","text":"Walking burns around 40–60 kcal per km depending on your weight and pace. A 70 kg person burns approximately 50 kcal/km at normal walking pace."}},{"@type":"Question","name":"How do I calculate calories burned walking?","acceptedAnswer":{"@type":"Answer","text":"Use the MET formula: Calories = MET x weight (kg) x duration (hours). Walking MET ranges from 2.5 (slow) to 5.0 (brisk). Our calculator does this automatically."}},{"@type":"Question","name":"How many steps burn 100 calories?","acceptedAnswer":{"@type":"Answer","text":"Roughly 2,000–2,500 steps burn about 100 calories, depending on your weight and stride length."}},{"@type":"Question","name":"Is walking or running better for burning calories?","acceptedAnswer":{"@type":"Answer","text":"Running burns roughly 2x more calories per minute than walking, but walking burns similar calories per km since it takes longer."}}]}</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--primary:#ff5c2b;--primary-dark:#e04a1e;--bg:#0f0f0f;--surface:#1a1a1a;--surface2:#242424;--border:#2e2e2e;--text:#f0f0f0;--text-muted:#888;--radius:12px}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    header{background:var(--surface);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:1.3rem;font-weight:800;color:var(--primary)}.logo span{color:var(--text)}
+    nav{display:flex;gap:8px}
+    nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;font-weight:600;padding:6px 14px;border-radius:6px;border:1px solid var(--border);transition:all .15s}
+    nav a:hover,nav a.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .hero{text-align:center;padding:48px 24px 32px;max-width:680px;margin:0 auto}
+    .hero h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;line-height:1.2;margin-bottom:12px}
+    .hero h1 span{color:var(--primary)}
+    .hero p{color:var(--text-muted);font-size:1rem;max-width:480px;margin:0 auto}
+    .calculator{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:580px;margin:0 auto 40px}
+    .field{margin-bottom:20px}
+    .field label{display:block;font-size:.82rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+    .input-row{display:flex;gap:8px}
+    .input-row input{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:1rem;padding:12px 14px;outline:none;transition:border-color .2s}
+    .input-row input:focus{border-color:var(--primary)}
+    .unit-toggle{display:flex;background:var(--surface2);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+    .unit-toggle button{flex:1;background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:.85rem;font-weight:600;padding:12px 14px;transition:background .15s,color .15s}
+    .unit-toggle button.active{background:var(--primary);color:#fff}
+    .pace-labels{display:flex;justify-content:space-between;font-size:.75rem;color:var(--text-muted);margin-bottom:6px}
+    input[type="range"]{-webkit-appearance:none;width:100%;height:6px;background:var(--surface2);border-radius:3px;outline:none;cursor:pointer}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--primary);cursor:pointer}
+    .pace-display{text-align:center;margin-top:8px;font-size:.9rem;font-weight:600;color:var(--primary)}
+    .sex-toggle{display:flex;gap:8px}
+    .sex-toggle button{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text-muted);cursor:pointer;font-size:.9rem;font-weight:600;padding:12px;transition:all .15s}
+    .sex-toggle button.active{background:var(--primary);border-color:var(--primary);color:#fff}
+    .calc-btn{width:100%;background:var(--primary);border:none;border-radius:8px;color:#fff;cursor:pointer;font-size:1rem;font-weight:700;padding:15px;margin-top:8px;transition:background .15s;letter-spacing:.02em}
+    .calc-btn:hover{background:var(--primary-dark)}
+    .results{display:none;margin-top:24px;border-top:1px solid var(--border);padding-top:24px}
+    .results.show{display:block}
+    .results-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+    .result-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+    .result-card.main{grid-column:1/-1;background:linear-gradient(135deg,#ff5c2b22,#ff5c2b11);border-color:var(--primary)}
+    .result-card .value{font-size:2rem;font-weight:800;color:var(--primary);line-height:1;margin-bottom:4px}
+    .result-card.main .value{font-size:2.8rem}
+    .result-card .unit{font-size:.8rem;color:var(--text-muted)}
+    .food-section{margin-top:16px}
+    .food-section h3{font-size:.82rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+    .food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
+    .food-item{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;font-size:.82rem}
+    .food-item .emoji{font-size:1.4rem;display:block;margin-bottom:4px}
+    .food-item .food-val{font-weight:700;color:var(--text)}
+    .food-item .food-name{color:var(--text-muted);font-size:.75rem}
+    .crosslink{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;max-width:580px;margin:0 auto 40px;text-align:center}
+    .crosslink p{color:var(--text-muted);margin-bottom:12px;font-size:.9rem}
+    .crosslink a{background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);text-decoration:none;padding:10px 20px;font-weight:600;font-size:.9rem;transition:all .15s;display:inline-block}
+    .crosslink a:hover{border-color:var(--primary);color:var(--primary)}
+    .article{max-width:680px;margin:0 auto 60px;padding:0 24px}
+    .article h2{font-size:1.4rem;font-weight:700;margin:32px 0 12px}
+    .article p{color:#bbb;margin-bottom:14px;line-height:1.75}
+    .faq{max-width:680px;margin:0 auto 60px;padding:0 24px}
+    .faq h2{font-size:1.4rem;font-weight:700;margin-bottom:16px}
+    .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;overflow:hidden}
+    .faq-q{cursor:pointer;font-weight:600;font-size:.95rem;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;user-select:none}
+    .faq-q::after{content:'+';font-size:1.3rem;color:var(--primary);font-weight:400;flex-shrink:0;margin-left:12px}
+    .faq-item.open .faq-q::after{content:'-'}
+    .faq-a{display:none;padding:0 20px 16px;color:#bbb;font-size:.92rem;line-height:1.7}
+    .faq-item.open .faq-a{display:block}
+    footer{border-top:1px solid var(--border);padding:24px;text-align:center;color:var(--text-muted);font-size:.82rem}
+    footer a{color:var(--text-muted);text-decoration:none}
+    @media(max-width:480px){.calculator{padding:20px 16px;margin:0 16px 32px}.results-grid{grid-template-columns:1fr}.result-card.main{grid-column:auto}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">run<span>kcal</span></div>
+  <nav>
+    <a href="/">🏃 Running</a>
+    <a href="/walking/" class="active">🚶 Walking</a>
+  </nav>
+</header>
+<div class="hero">
+  <h1>Free <span>Walking Calorie</span> Calculator</h1>
+  <p>Instantly calculate kcal burned walking. No signup. No ads. Just results.</p>
+</div>
+<div class="calculator">
+  <div class="field"><label>Body Weight</label><div class="input-row"><input type="number" id="weight" placeholder="70" min="30" max="250" value="70"><div class="unit-toggle"><button class="active" id="btn-kg" onclick="setWeightUnit('kg')">kg</button><button id="btn-lbs" onclick="setWeightUnit('lbs')">lbs</button></div></div></div>
+  <div class="field"><label>Distance</label><div class="input-row"><input type="number" id="distance" placeholder="5" min="0.1" max="200" step="0.1" value="5"><div class="unit-toggle"><button class="active" id="btn-km" onclick="setDistUnit('km')">km</button><button id="btn-mi" onclick="setDistUnit('mi')">mi</button></div></div></div>
+  <div class="field"><label>Walking Pace</label><div class="pace-labels"><span>Slow</span><span>Normal</span><span>Brisk</span><span>Fast</span></div><input type="range" id="pace" min="1" max="4" step="1" value="2" oninput="updatePaceLabel()"><div class="pace-display" id="pace-display">Normal walk — ~4 km/h</div></div>
+  <div class="field"><label>Sex</label><div class="sex-toggle"><button class="active" id="btn-m" onclick="setSex('m')">Male</button><button id="btn-f" onclick="setSex('f')">Female</button></div></div>
+  <button class="calc-btn" onclick="calculate()">Calculate kcal</button>
+  <div class="results" id="results">
+    <div class="results-grid">
+      <div class="result-card main"><div class="value" id="res-total">0</div><div class="unit">total kcal burned</div></div>
+      <div class="result-card"><div class="value" id="res-per-km">0</div><div class="unit">kcal / km</div></div>
+      <div class="result-card"><div class="value" id="res-per-min">0</div><div class="unit">kcal / min</div></div>
+    </div>
+    <div class="food-section"><h3>Food equivalents</h3><div class="food-grid" id="food-grid"></div></div>
+  </div>
+</div>
+<div class="crosslink">
+  <p>Also a runner? Try our running calculator for higher-intensity workouts.</p>
+  <a href="/">🏃 Running Calorie Calculator →</a>
+</div>
+<div class="article">
+  <h2>Walking Calorie Calculator — How It Works</h2>
+  <p>Our <strong>walking calorie calculator</strong> uses the MET (Metabolic Equivalent of Task) formula to estimate kilocalories burned during any walk. Enter your weight, distance, and pace for an instant result.</p>
+  <h2>How Many Calories Does Walking Burn?</h2>
+  <p>Walking burns around <strong>40–60 kcal per km</strong> depending on your weight and speed. A 70 kg person walking at normal pace (~4 km/h) burns approximately 50 kcal per km — about 250 kcal for a 5km walk.</p>
+  <h2>Walking vs Running Calories</h2>
+  <p>Running burns roughly <strong>2x more calories per minute</strong> than walking. However, per kilometer, the difference is smaller — running burns about 70–80 kcal/km vs 40–60 kcal/km walking. Use our <a href="/" style="color:var(--primary)">running calorie calculator</a> to compare.</p>
+  <h2>The MET Formula for Walking</h2>
+  <p>Formula: <strong>kcal = MET × weight (kg) × time (hours)</strong>. Walking MET ranges from 2.5 (slow stroll) to 5.0 (very brisk walk). Our calculator uses 4 calibrated pace levels.</p>
+</div>
+<div class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many calories does walking burn per km?</div><div class="faq-a">On average 40-60 kcal per km. A 70 kg person burns ~50 kcal/km at normal walking pace.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many steps burn 100 calories?</div><div class="faq-a">Roughly 2,000–2,500 steps burn about 100 calories, depending on your weight and stride length.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is walking enough to lose weight?</div><div class="faq-a">Yes — walking 30 min/day at brisk pace burns ~150-200 kcal. Combined with a calorie deficit, it supports steady weight loss.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Does walking speed affect calories burned?</div><div class="faq-a">Yes — brisk walking (5-6 km/h) burns 20-30% more calories than slow walking (3 km/h) for the same distance.</div></div>
+</div>
+<footer><p>2025 runkcal.com — Free Walking & Running Calorie Calculator | <a href="/">Running Calculator</a> | <a href="mailto:hello@runkcal.com">Contact</a></p></footer>
+<script>
+  let weightUnit='kg',distUnit='km',sex='m';
+  const P=[{l:'Slow walk ~3km/h',m:2.5,k:3},{l:'Normal walk ~4km/h',m:3.5,k:4},{l:'Brisk walk ~5.5km/h',m:4.3,k:5.5},{l:'Fast walk ~6.5km/h',m:5.0,k:6.5}];
+  const F=[{e:'🍌',n:'Bananas',c:89},{e:'🍕',n:'Pizza',c:285},{e:'🍺',n:'Beer',c:150},{e:'🍫',n:'Chocolate',c:230},{e:'🥚',n:'Eggs',c:78},{e:'🍎',n:'Apples',c:95}];
+  function setWeightUnit(u){const w=parseFloat(document.getElementById('weight').value)||70;if(u==='lbs'&&weightUnit==='kg')document.getElementById('weight').value=Math.round(w*2.205);else if(u==='kg'&&weightUnit==='lbs')document.getElementById('weight').value=Math.round(w/2.205);weightUnit=u;document.getElementById('btn-kg').classList.toggle('active',u==='kg');document.getElementById('btn-lbs').classList.toggle('active',u==='lbs')}
+  function setDistUnit(u){const d=parseFloat(document.getElementById('distance').value)||5;if(u==='mi'&&distUnit==='km')document.getElementById('distance').value=(d*0.6214).toFixed(2);else if(u==='km'&&distUnit==='mi')document.getElementById('distance').value=(d*1.6093).toFixed(2);distUnit=u;document.getElementById('btn-km').classList.toggle('active',u==='km');document.getElementById('btn-mi').classList.toggle('active',u==='mi')}
+  function setSex(s){sex=s;document.getElementById('btn-m').classList.toggle('active',s==='m');document.getElementById('btn-f').classList.toggle('active',s==='f')}
+  function updatePaceLabel(){document.getElementById('pace-display').textContent=P[document.getElementById('pace').value-1].l}
+  function calculate(){let w=parseFloat(document.getElementById('weight').value)||70,d=parseFloat(document.getElementById('distance').value)||5,p=P[document.getElementById('pace').value-1];if(weightUnit==='lbs')w/=2.205;if(distUnit==='mi')d*=1.6093;const sf=sex==='f'?0.9:1,dh=d/p.k,t=p.m*w*dh*sf;anim('res-total',Math.round(t));anim('res-per-km',Math.round(t/d));anim('res-per-min',Math.round(t/(dh*60)));document.getElementById('food-grid').innerHTML=F.map(f=>`<div class="food-item"><span class="emoji">${f.e}</span><div class="food-val">x${(t/f.c).toFixed(1)}</div><div class="food-name">${f.n}</div></div>`).join('');document.getElementById('results').classList.add('show')}
+  function anim(id,end){const el=document.getElementById(id),t0=performance.now();(function s(now){const p=Math.min((now-t0)/700,1);el.textContent=Math.round(end*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(s)})(t0)}
+  function toggleFaq(el){el.closest('.faq-item').classList.toggle('open')}
+  updatePaceLabel();
+</script>
+</body>
+</html>
