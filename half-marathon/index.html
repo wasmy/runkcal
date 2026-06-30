@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1381041586215537" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNZBVCGBQ7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VNZBVCGBQ7');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Half Marathon Calorie Calculator — Calories Burned Running 13.1 Miles</title>
+  <meta name="description" content="How many calories does a half marathon burn? Enter your weight and pace for an instant result. Free half marathon calorie calculator — no signup needed.">
+  <meta name="keywords" content="half marathon calorie calculator, calories burned running a half marathon, half marathon calories, 13.1 miles calories burned">
+  <link rel="canonical" href="https://runkcal.com/half-marathon/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Half Marathon Calorie Calculator","url":"https://runkcal.com/half-marathon/","description":"Calculate calories burned running a half marathon by weight and pace.","applicationCategory":"HealthApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many calories does a half marathon burn?","acceptedAnswer":{"@type":"Answer","text":"A half marathon (21.1 km / 13.1 miles) burns approximately 1,300–2,000 calories depending on body weight. A 70 kg runner burns around 1,450–1,500 kcal. The rule is roughly 1 kcal per kg per km: 70 kg × 21.1 km ≈ 1,477 kcal."}},{"@type":"Question","name":"How many calories does a half marathon burn by weight?","acceptedAnswer":{"@type":"Answer","text":"At moderate pace: 60kg = ~1,230 kcal, 70kg = ~1,440 kcal, 80kg = ~1,645 kcal, 90kg = ~1,850 kcal, 100kg = ~2,055 kcal."}},{"@type":"Question","name":"Do you need to eat during a half marathon?","acceptedAnswer":{"@type":"Answer","text":"For most runners, yes. A half marathon burns 1,300–2,000 kcal. Taking on 100–200 kcal of carbohydrates per hour (gels, chews) from around 45–60 minutes in helps maintain energy for a strong finish."}},{"@type":"Question","name":"How long does it take to run a half marathon?","acceptedAnswer":{"@type":"Answer","text":"Average finish times: beginners 2:30–3:00 hr, intermediate runners 1:55–2:20 hr, experienced 1:35–1:55 hr, competitive under 1:30 hr. Our calculator shows your estimated finish time based on selected pace."}}]}</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--primary:#ff5c2b;--primary-dark:#e04a1e;--bg:#0f0f0f;--surface:#1a1a1a;--surface2:#242424;--border:#2e2e2e;--text:#f0f0f0;--text-muted:#888;--radius:12px}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+    header{background:var(--surface);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .logo{font-size:1.3rem;font-weight:800;color:var(--primary)}.logo span{color:var(--text)}
+    nav{display:flex;gap:6px;flex-wrap:wrap}
+    nav a{color:var(--text-muted);text-decoration:none;font-size:.82rem;font-weight:600;padding:6px 12px;border-radius:6px;border:1px solid var(--border);transition:all .15s}
+    nav a:hover,nav a.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .hero{text-align:center;padding:48px 24px 32px;max-width:680px;margin:0 auto}
+    .hero h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;line-height:1.2;margin-bottom:12px}
+    .hero h1 span{color:var(--primary)}
+    .hero p{color:var(--text-muted);font-size:1rem;max-width:500px;margin:0 auto}
+    .badge-row{display:flex;justify-content:center;gap:8px;margin-top:16px;flex-wrap:wrap}
+    .badge{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:.78rem;color:var(--text-muted)}
+    .badge strong{color:var(--text)}
+    .calculator{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:540px;margin:0 auto 40px}
+    .field{margin-bottom:20px}
+    .field label{display:block;font-size:.82rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+    .input-row{display:flex;gap:8px}
+    .input-row input{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:1.1rem;padding:12px 14px;outline:none;transition:border-color .2s}
+    .input-row input:focus{border-color:var(--primary)}
+    .unit-toggle{display:flex;background:var(--surface2);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+    .unit-toggle button{flex:1;background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:.85rem;font-weight:600;padding:12px 14px;transition:background .15s,color .15s}
+    .unit-toggle button.active{background:var(--primary);color:#fff}
+    .pace-labels{display:flex;justify-content:space-between;font-size:.72rem;color:var(--text-muted);margin-bottom:6px}
+    input[type="range"]{-webkit-appearance:none;width:100%;height:6px;background:var(--surface2);border-radius:3px;outline:none;cursor:pointer}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--primary);cursor:pointer}
+    .pace-display{text-align:center;margin-top:8px;font-size:.9rem;font-weight:600;color:var(--primary)}
+    .sex-toggle{display:flex;gap:8px}
+    .sex-toggle button{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text-muted);cursor:pointer;font-size:.9rem;font-weight:600;padding:12px;transition:all .15s}
+    .sex-toggle button.active{background:var(--primary);border-color:var(--primary);color:#fff}
+    .calc-btn{width:100%;background:var(--primary);border:none;border-radius:8px;color:#fff;cursor:pointer;font-size:1rem;font-weight:700;padding:15px;margin-top:8px;transition:background .15s}
+    .calc-btn:hover{background:var(--primary-dark)}
+    .results{display:none;margin-top:24px;border-top:1px solid var(--border);padding-top:24px}
+    .results.show{display:block}
+    .result-main{background:linear-gradient(135deg,#ff5c2b22,#ff5c2b11);border:2px solid var(--primary);border-radius:12px;padding:28px;text-align:center;margin-bottom:12px}
+    .result-main .value{font-size:3.5rem;font-weight:800;color:var(--primary);line-height:1}
+    .result-main .unit{font-size:.9rem;color:var(--text-muted);margin-top:4px}
+    .result-main .sub{font-size:.82rem;color:var(--text-muted);margin-top:10px;border-top:1px solid var(--border);padding-top:10px}
+    .results-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+    .result-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+    .result-card .value{font-size:1.8rem;font-weight:800;color:var(--primary);line-height:1;margin-bottom:4px}
+    .result-card .unit{font-size:.78rem;color:var(--text-muted)}
+    .fuel-section{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px}
+    .fuel-section h3{font-size:.82rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+    .fuel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .fuel-item{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;font-size:.8rem}
+    .fuel-item .emoji{font-size:1.2rem;display:block;margin-bottom:4px}
+    .fuel-item .fval{font-weight:700;color:var(--primary)}
+    .fuel-item .fname{color:var(--text-muted);font-size:.72rem}
+    .weight-table{max-width:540px;margin:0 auto 40px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+    .weight-table h3{padding:16px 20px;font-size:.95rem;font-weight:700;border-bottom:1px solid var(--border)}
+    .weight-table table{width:100%;border-collapse:collapse;font-size:.85rem}
+    .weight-table th{background:var(--surface2);padding:10px 16px;text-align:left;color:var(--text-muted);font-weight:600}
+    .weight-table td{padding:10px 16px;border-top:1px solid var(--border);color:#ccc}
+    .weight-table tr.highlight td{color:var(--primary);font-weight:700}
+    .crosslinks{max-width:540px;margin:0 auto 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .crosslink-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+    .crosslink-card a{color:var(--text);text-decoration:none;font-size:.8rem;font-weight:600}
+    .crosslink-card a:hover{color:var(--primary)}
+    .crosslink-card .icon{font-size:1.3rem;display:block;margin-bottom:6px}
+    .article{max-width:680px;margin:0 auto 60px;padding:0 24px}
+    .article h2{font-size:1.3rem;font-weight:700;margin:32px 0 12px}
+    .article p{color:#bbb;margin-bottom:14px;line-height:1.75}
+    .faq{max-width:680px;margin:0 auto 60px;padding:0 24px}
+    .faq h2{font-size:1.3rem;font-weight:700;margin-bottom:16px}
+    .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;overflow:hidden}
+    .faq-q{cursor:pointer;font-weight:600;font-size:.95rem;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;user-select:none}
+    .faq-q::after{content:'+';font-size:1.3rem;color:var(--primary);font-weight:400;flex-shrink:0;margin-left:12px}
+    .faq-item.open .faq-q::after{content:'-'}
+    .faq-a{display:none;padding:0 20px 16px;color:#bbb;font-size:.92rem;line-height:1.7}
+    .faq-item.open .faq-a{display:block}
+    footer{border-top:1px solid var(--border);padding:24px;text-align:center;color:var(--text-muted);font-size:.82rem}
+    footer a{color:var(--text-muted);text-decoration:none}
+    @media(max-width:480px){.calculator{padding:20px 16px;margin:0 16px 32px}.results-grid{grid-template-columns:1fr}.crosslinks{grid-template-columns:1fr 1fr}.fuel-grid{grid-template-columns:repeat(2,1fr)}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">run<span>kcal</span></div>
+  <nav>
+    <a href="/">🏃 Running</a>
+    <a href="/walking/">🚶 Walking</a>
+    <a href="/treadmill/">🏋️ Treadmill</a>
+    <a href="/5k/">5K</a>
+    <a href="/10k/">10K</a>
+    <a href="/mile/">Mile</a>
+    <a href="/half-marathon/" class="active">Half Marathon</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1><span>Half Marathon</span> Calorie Calculator</h1>
+  <p>How many calories does a half marathon burn? Enter your weight and pace — get your result instantly.</p>
+  <div class="badge-row">
+    <div class="badge">📏 <strong>21.1 km / 13.1 miles</strong></div>
+    <div class="badge">⚡ MET formula</div>
+    <div class="badge">🆓 Free, no signup</div>
+  </div>
+</div>
+
+<div class="calculator">
+  <div class="field">
+    <label>Your Weight</label>
+    <div class="input-row">
+      <input type="number" id="weight" placeholder="70" min="30" max="250" value="70">
+      <div class="unit-toggle">
+        <button class="active" id="btn-kg" onclick="setWeightUnit('kg')">kg</button>
+        <button id="btn-lbs" onclick="setWeightUnit('lbs')">lbs</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Running Pace</label>
+    <div class="pace-labels"><span>Beginner</span><span>Easy</span><span>Moderate</span><span>Fast</span><span>Elite</span></div>
+    <input type="range" id="pace" min="1" max="7" step="1" value="3" oninput="updatePaceLabel()">
+    <div class="pace-display" id="pace-display">Easy run — ~9 km/h (2:20 finish)</div>
+  </div>
+
+  <div class="field">
+    <label>Sex</label>
+    <div class="sex-toggle">
+      <button class="active" id="btn-m" onclick="setSex('m')">Male</button>
+      <button id="btn-f" onclick="setSex('f')">Female</button>
+    </div>
+  </div>
+
+  <button class="calc-btn" onclick="calculate()">Calculate Half Marathon Calories</button>
+
+  <div class="results" id="results">
+    <div class="result-main">
+      <div class="value" id="res-total">0</div>
+      <div class="unit">kcal burned — half marathon</div>
+      <div class="sub" id="time-note">Estimated finish time: —</div>
+    </div>
+    <div class="results-grid">
+      <div class="result-card"><div class="value" id="res-per-km">0</div><div class="unit">kcal / km</div></div>
+      <div class="result-card"><div class="value" id="res-per-min">0</div><div class="unit">kcal / min</div></div>
+    </div>
+    <div class="fuel-section">
+      <h3>🍌 Fueling guide for your race</h3>
+      <div class="fuel-grid" id="fuel-grid"></div>
+    </div>
+  </div>
+</div>
+
+<div class="weight-table">
+  <h3>Half Marathon Calories by Weight (Easy pace ~9 km/h)</h3>
+  <table>
+    <tr><th>Weight</th><th>kcal burned</th><th>Finish time</th></tr>
+    <tr><td>50 kg / 110 lbs</td><td>~1,030 kcal</td><td>~2:21</td></tr>
+    <tr><td>60 kg / 132 lbs</td><td>~1,235 kcal</td><td>~2:21</td></tr>
+    <tr class="highlight"><td>70 kg / 154 lbs</td><td>~1,441 kcal</td><td>~2:21</td></tr>
+    <tr><td>80 kg / 176 lbs</td><td>~1,647 kcal</td><td>~2:21</td></tr>
+    <tr><td>90 kg / 198 lbs</td><td>~1,853 kcal</td><td>~2:21</td></tr>
+    <tr><td>100 kg / 220 lbs</td><td>~2,058 kcal</td><td>~2:21</td></tr>
+  </table>
+</div>
+
+<div class="crosslinks">
+  <div class="crosslink-card"><span class="icon">5️⃣</span><a href="/5k/">5K</a></div>
+  <div class="crosslink-card"><span class="icon">🔟</span><a href="/10k/">10K</a></div>
+  <div class="crosslink-card"><span class="icon">🏃</span><a href="/mile/">Mile</a></div>
+  <div class="crosslink-card"><span class="icon">🏋️</span><a href="/treadmill/">Treadmill</a></div>
+</div>
+
+<div class="article">
+  <h2>How Many Calories Does a Half Marathon Burn?</h2>
+  <p>A half marathon (21.1 km / 13.1 miles) burns approximately <strong>1,200–2,100 kcal</strong> depending on body weight. The reliable rule: <strong>1 kcal per kg per km</strong>. A 70 kg runner burns roughly 70 × 21.1 = 1,477 kcal — nearly a full day's worth of calories for a moderately active person.</p>
+
+  <h2>Half Marathon vs 10K Calories</h2>
+  <p>A half marathon burns roughly <strong>2.1× more calories</strong> than a 10K at the same pace and weight. If you burn 700 kcal for a 10K, expect ~1,450 kcal for a half marathon. The extra distance also elevates post-race calorie burn (EPOC) for 12–24 hours afterward.</p>
+
+  <h2>Do You Need to Fuel During a Half Marathon?</h2>
+  <p>For most runners, yes — especially those finishing in over 90 minutes. Your body stores roughly 1,500–2,000 kcal of glycogen. A half marathon can deplete this entirely. Taking <strong>1–2 energy gels or chews</strong> (100–200 kcal each) from around 45 minutes in helps maintain pace and prevents hitting the wall.</p>
+
+  <h2>Half Marathon Calorie Burn by Pace</h2>
+  <p>While distance is the main driver, pace affects the MET value. A 70 kg runner finishes a half marathon in ~2:20 at easy pace (9 km/h) burning ~1,440 kcal, vs ~1:35 at fast pace (13 km/h) burning ~1,350 kcal — slightly less because higher pace has shorter duration. Either way, it's a massive calorie burn.</p>
+</div>
+
+<div class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many calories does a half marathon burn?</div><div class="faq-a">Between 1,200–2,100 kcal depending on body weight. A 70 kg runner burns ~1,450 kcal. The rule: 1 kcal per kg per km — so 70 × 21.1 ≈ 1,477 kcal.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can running a half marathon help lose weight?</div><div class="faq-a">Yes — significantly. One half marathon burns 1,200–2,100 kcal. That's roughly 0.35–0.6 lb of fat per race. Training for a half marathon typically results in 3–6 lb of fat loss over 12 weeks.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What should I eat the night before a half marathon?</div><div class="faq-a">Carbohydrate-rich meals 12–15 hours before the race: pasta, rice, bread, or potatoes. Aim for 8–10g of carbs per kg of bodyweight the day before. Avoid high-fat, high-fibre, or unfamiliar foods.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How many calories should I eat after a half marathon?</div><div class="faq-a">Prioritize carbs + protein within 30–60 minutes of finishing: 1–1.2g carbs per kg bodyweight + 20–30g protein. Then eat a full recovery meal within 2–3 hours to replenish your 1,200–2,100 kcal deficit.</div></div>
+</div>
+
+<footer>
+  <p>© 2025 runkcal.com — Free Running Calorie Calculators |
+    <a href="/">Running</a> · <a href="/walking/">Walking</a> · <a href="/treadmill/">Treadmill</a> · <a href="/5k/">5K</a> · <a href="/10k/">10K</a> · <a href="/mile/">Mile</a> · <a href="/half-marathon/">Half Marathon</a> |
+    <a href="mailto:hello@runkcal.com">Contact</a>
+  </p>
+</footer>
+
+<script>
+  let weightUnit='kg', sex='m';
+  const DIST = 21.1;
+  const P=[
+    {l:'Beginner jog — ~7 km/h (3:00 finish)', m:6.0, k:7},
+    {l:'Easy run — ~8 km/h (2:38 finish)',     m:7.0, k:8},
+    {l:'Easy run — ~9 km/h (2:21 finish)',     m:7.5, k:9},
+    {l:'Moderate — ~10 km/h (2:07 finish)',    m:8.3, k:10},
+    {l:'Fast run — ~11 km/h (1:55 finish)',    m:9.0, k:11},
+    {l:'Fast run — ~12 km/h (1:46 finish)',    m:10.0,k:12},
+    {l:'Competitive — ~13 km/h (1:37 finish)', m:11.0,k:13},
+  ];
+  const GELS=[
+    {e:'🍬',n:'Energy gel',c:100},
+    {e:'🍌',n:'Banana',c:89},
+    {e:'🧃',n:'Sports drink',c:80},
+    {e:'🍇',n:'Energy chews',c:90},
+    {e:'🍫',n:'Energy bar',c:200},
+    {e:'🥤',n:'Isotonic drink',c:60},
+  ];
+
+  function setWeightUnit(u){
+    const w=parseFloat(document.getElementById('weight').value)||70;
+    if(u==='lbs'&&weightUnit==='kg') document.getElementById('weight').value=Math.round(w*2.205);
+    else if(u==='kg'&&weightUnit==='lbs') document.getElementById('weight').value=Math.round(w/2.205);
+    weightUnit=u;
+    document.getElementById('btn-kg').classList.toggle('active',u==='kg');
+    document.getElementById('btn-lbs').classList.toggle('active',u==='lbs');
+  }
+  function setSex(s){
+    sex=s;
+    document.getElementById('btn-m').classList.toggle('active',s==='m');
+    document.getElementById('btn-f').classList.toggle('active',s==='f');
+  }
+  function updatePaceLabel(){
+    document.getElementById('pace-display').textContent=P[document.getElementById('pace').value-1].l;
+  }
+  function calculate(){
+    let w=parseFloat(document.getElementById('weight').value)||70;
+    const p=P[document.getElementById('pace').value-1];
+    if(weightUnit==='lbs') w/=2.205;
+    const sf=sex==='f'?0.9:1;
+    const dh=DIST/p.k;
+    const t=p.m*w*dh*sf;
+    const totalMins=dh*60;
+    const hh=Math.floor(totalMins/60);
+    const mm=Math.floor(totalMins%60);
+    const ss=Math.round((totalMins-Math.floor(totalMins))*60);
+
+    anim('res-total',Math.round(t));
+    anim('res-per-km',Math.round(t/DIST));
+    anim('res-per-min',Math.round(t/totalMins));
+    document.getElementById('time-note').textContent=`Estimated finish time: ${hh}:${String(mm).padStart(2,'0')}:${String(ss).padStart(2,'0')}`;
+
+    // Fueling guide
+    const gelsNeeded = Math.ceil(t * 0.5 / 100); // replace ~50% of burned kcal
+    document.getElementById('fuel-grid').innerHTML=GELS.map(g=>`
+      <div class="fuel-item">
+        <span class="emoji">${g.e}</span>
+        <div class="fval">${Math.round(t/g.c*0.5)}x</div>
+        <div class="fname">${g.n}</div>
+      </div>`).join('');
+
+    document.getElementById('results').classList.add('show');
+  }
+  function anim(id,end){
+    const el=document.getElementById(id),t0=performance.now();
+    (function s(now){
+      const p=Math.min((now-t0)/700,1);
+      el.textContent=Math.round(end*(1-Math.pow(1-p,3)));
+      if(p<1)requestAnimationFrame(s)
+    })(t0)
+  }
+  function toggleFaq(el){el.closest('.faq-item').classList.toggle('open')}
+  updatePaceLabel();
+</script>
+</body>
+</html>
